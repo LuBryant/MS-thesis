@@ -1,0 +1,371 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2018--2023 by Xiangdong Zeng <xdzeng96@gmail.com>
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any later
+% version. The latest version of this license is in:
+%
+%   http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of
+% LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Xiangdong Zeng.
+%
+% \fi
+
+%*********************************************************************
+% fduthesis: 复旦大学论文模板
+% 2023-05-27 v0.9a
+%
+% 重要提示：
+%   1. 请确保使用 UTF-8 编码保存
+%   2. 请使用 XeLaTeX 或 LuaLaTeX 编译
+%   3. 请仔细阅读用户文档
+%   4. 修改、使用、发布本文档请务必遵循 LaTeX Project Public License
+%   5. 不需要的注释可以尽情删除
+%*********************************************************************
+
+\documentclass[type=master]{fduthesis}
+% 模板选项：
+%   type = doctor|master|bachelor  论文类型，默认为本科论文
+%   oneside|twoside                论文的单双面模式，默认为 twoside
+%   draft = true|false             是否开启草稿模式，默认关闭
+% 带选项的用法示例：
+%   \documentclass[oneside]{fduthesis}
+%   \documentclass[twoside, draft=true]{fduthesis}
+%   \documentclass[type=bachelor, twoside, draft=true]{fduthesis}
+
+\fdusetup{
+  % 参数设置
+  % 允许采用两种方式设置选项：
+  %   1. style/... = ...
+  %   2. style = { ... = ... }
+  % 注意事项：
+  %   1. 不要出现空行
+  %   2. “=” 两侧的空格会被忽略
+  %   3. “/” 两侧的空格不会被忽略
+  %   4. 请使用英文逗号 “,” 分隔选项
+  %
+  % style 类用于设置论文格式
+  style = {
+    % font = times,
+    % 西文字体（包括数学字体）
+    % 允许选项：
+    %   font = garamond|libertinus|lm|palatino|times|times*|none
+    %
+    % cjk-font = none,
+    % cjk-font = fandol,
+    % 中文字体
+    % 允许选项：
+    %   cjk-font = adobe|fandol|founder|mac|sinotype|sourcehan|windows|none
+    %
+    % 注意：
+    %   1. 中文字体设置高度依赖于系统。各系统建议方案：
+    %        windows：cjk-font = windows
+    %        mac：    cjk-font = mac
+    %        linux：  cjk-font = fandol（默认值）
+    %   2. 除 fandol 和 sourcehan 外，其余字体均为商用字体，请注意版权问题
+    %   3. 但 fandol 字体缺字比较严重，而 sourcehan 没有配备楷体和仿宋体
+    %   4. 这里中西文字体设置均注释掉了，即使用默认设置：
+    %        font     = times
+    %        cjk-font = fandol
+    %   5. 使用 font = none / cjk-font = none 关闭默认字体设置，需手动进行配置
+    %
+    % font-size = -4,
+    % 字号
+    % 允许选项：
+    %   font-size = -4|5
+    %
+    % fullwidth-stop = catcode,
+    % 是否把全角实心句点 “．” 作为默认的句号形状
+    % 允许选项：
+    %   fullwidth-stop = catcode|mapping|false
+    % 说明：
+    %   catcode   显式的 “。” 会被替换为 “．”（e.g. 不包括用宏定义保存的 “。”）
+    %   mapping   所有的 “。” 会被替换为 “．”（使用 LuaLaTeX 编译则无效）
+    %   false     不进行替换
+    %
+    footnote-style = xits,
+    % 脚注编号样式
+    % 允许选项：
+    %   footnote-style = plain|libertinus|libertinus*|libertinus-sans|
+    %                    pifont|pifont*|pifont-sans|pifont-sans*|
+    %                    xits|xits-sans|xits-sans*
+    % 默认与西文字体保持一致
+    %
+    % hyperlink = color,
+    % 超链接样式
+    % 允许选项：
+    %   hyperlink = border|color|none
+    %
+    % hyperlink-color = default,
+    % 超链接颜色
+    % 允许选项：
+    %   hyperlink-color = default|classic|material|graylevedl|prl
+    %
+    bib-backend = bibtex,
+    % 参考文献支持方式
+    % 允许选项：
+    %   bib-backend = bibtex|biblatex
+    %
+    % bib-style = numerical,
+    % 参考文献样式
+    % 允许选项：
+    %   bib-style = author-year|numerical|<其他样式>
+    % 说明：
+    %   author-year  著者—出版年制
+    %   numerical    顺序编码制
+    %   <其他样式>   使用其他 .bst（bibtex）或 .bbx（biblatex）格式文件
+    %
+    % cite-style = {},
+    % 引用样式
+    % 默认为空，即与参考文献样式保持一致
+    % 仅适用于 biblatex；如要填写，需保证相应的 .cbx 格式文件能被调用
+    %
+    bib-resource = {main.bib},
+    % 参考文献数据源
+    % 可以是单个文件，也可以是用英文逗号 “,” 隔开的一组文件
+    % 如果使用 biblatex，则必须明确给出 .bib 后缀名
+    %
+    % logo = {fudan-name.pdf},
+    % 封面中的校名图片
+    % 模版已自带，通常不需要额外配置
+    %
+    % logo-size = {0.5\textwidth},      % 只设置宽度
+    % logo-size = {{}, 3cm},            % 只设置高度
+    % logo-size = {8cm, 3cm},           % 设置宽度和高度
+    % 设置校名图片的大小
+    % 通常不需要调整
+    %
+    % declaration-page = {declaration.pdf},
+    % 插入扫描版的声明页 PDF 文档
+    % 默认使用预定义的声明页，但不带签名
+    %
+    % auto-make-cover = true
+    % 是否自动生成论文封面（封一）、指导小组成员名单（封二）和声明页（封三）
+    % 除非特殊需要（e.g. 不要封面），否则不建议设为 false
+  },
+  %
+  % info 类用于录入论文信息
+  info = {
+    title = {量子顺磁体的自旋能斯特效应},
+    % 中文标题
+    % 长标题建议使用 “\\” 命令手动换行（不是指在源文件里输入回车符，当然
+    % 源文件里适当的换行可以有助于代码清晰）：
+    %   title = {最高人民法院、最高人民检察院关于适用\\
+    %            犯罪嫌疑人、被告人逃匿、死亡案件违法所得\\
+    %            没收程序若干问题的规定},
+    %
+    title* = {Spin Nernst effects in quantum paramagnets},
+    % 英文标题
+    %
+    author = {卢博文},
+    % 作者姓名
+    %
+    % author* = {Your name},
+    % 作者姓名（英文 / 拼音）
+    % 目前不需要填写
+    %
+    supervisor = {虞跃 \  教授 \& 陈钢 \  教授},
+    % 导师
+    % 姓名与职称之间可以用 \quad 打印一个空格
+    %
+    major = {理论物理},
+    % 专业
+    %
+    degree = academic,
+    % 学位类型
+    % 允许选项：
+    %   degree = academic|professional
+    % 说明：
+    %   academic      学术学位
+    %   professional  专业学位
+    %
+    department = {物理学系},
+    % 院系
+    %
+    student-id = {21110190043},
+    % 作者学号
+    %
+    % date = {2023 年 1 月 1 日},
+    % 日期
+    % 注释掉表示使用编译日期
+    %
+    % secret-level = ii,
+    % 密级
+    % 允许选项：
+    %   secret-level = none|i|ii|iii
+    % 说明：
+    %   none  不显示密级与保密年限
+    %   i     秘密
+    %   ii    机密
+    %   iii   绝密
+    %
+    % secret-year = {五年},
+    % 保密年限
+    % secret-level = none 时该选项无效
+    %
+    instructors = {
+      {虞\quad 跃 \quad 教\quad 授},
+      {陈\quad 钢 \quad 教\quad 授}
+    },
+    % 指导小组成员
+    % 使用英文逗号 “,” 分隔
+    % 如有需要，可以用 \quad 手工对齐
+    %
+    keywords = {量子顺磁体, 味能斯特效应, 自旋输运，贝利曲率，拓扑自旋输运。},
+    % 中文关键词
+    % 使用英文逗号 “,” 分隔
+    %
+    keywords* = {Quantum Paramagnets, Flavor Nernst Effect, Spin Transport, Berry Curvature, Topological Spin Transport.},
+    % 英文关键词
+    % 使用英文逗号 “,” 分隔
+    %
+    clc = {O469},
+    % 中图分类号
+    %
+    % jel = {C02},
+    % JEL 分类号，仅适用于经济学院等部分院系
+  }
+}
+
+% 需要的宏包可以自行调用
+\usepackage{physics}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue]{hyperref}
+%\usepackage{bm}
+\usepackage{times}
+\usepackage{cases}
+\usepackage{wasysym}
+\usepackage[version=4]{mhchem}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{booktabs}  %provide toprule
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage[normalem]{ulem}
+\usepackage{comment}
+\usepackage{lineno}
+
+% \setCJKmainfont{FZXSSK.TTF}
+
+
+% 需要的命令可以自行定义
+\newcommand{\hilbertH}{\symcal{H}}
+\newcommand{\ee}{\symrm{e}}
+\newcommand{\ii}{\symrm{i}}
+\newcommand{\bm}[1]{\symbf{#1}}
+
+\graphicspath{{figures/}}
+
+\begin{document}
+
+% 这个命令用来关闭版心底部强制对齐，可以减少不必要的 underfull \vbox 提示，但会影响排版效果
+% \raggedbottom
+
+% 前置部分包含目录、中英文摘要以及符号表等
+\frontmatter
+
+% 目录
+\tableofcontents
+% 插图目录
+\listoffigures
+% 表格目录
+% \listoftables
+
+\begin{abstract}
+  自旋输运研究这一新兴领域揭示了量子顺磁体的引人注目的潜力，尽管它们缺乏长程磁有序，但却具备展现新奇现象的能力，并为先进技术应用开辟了道路。本论文深入探讨了量子顺磁体框架下的能斯特型热自旋输运，重点研究了自旋-轨道耦合与系统基态之间的相互作用，尽管该基态是顺磁性的，但它能够通过上支激发传递自旋信息。
+
+  通过利用色散晶体电场（CEF）激发，我们将上支部分描述为具有不同味道的玻色子准粒子，在线性味波理论框架下进行处理。这种方法使我们能够引入味能斯特效应（FNE）的概念，这是一种拓扑自旋输运现象，区别于在有序系统中观察到的磁声子能斯特效应。
+
+  利用包含Dzyaloshinskii-Moriya（DM）相互作用和显著硬轴各向异性的有效自旋-1哈密顿量，我们通过线性响应理论计算味能斯特系数。我们的分析进一步通过考察具有全入全出的伊辛轴配置的二维 pyrochlore 薄膜来证实，在该薄膜中，我们阐明了FNE及其对温度、各向异性、DM相互作用和外部磁场的敏感性。
+
+  本研究的结果强调了FNE与CEF激发的贝里曲率之间的内在联系，这一关系为热自旋电流的调控和量子顺磁体中拓扑自旋输运的探索提供了前景。本研究不仅有助于量子顺磁体理论理解的深入，而且为未来实验研究奠定了基础，旨在利用这些效应实现自旋电子学领域的实际应用。
+\end{abstract}
+
+\begin{abstract*}
+    The burgeoning field of spin transport research has unveiled the intriguing potential of quantum paramagnets, which lack long-range magnetic order yet harbor the capacity to exhibit novel phenomena and pave the way for advanced technological applications. This thesis delves into the investigation of Nernst-type thermal spin transport within the framework of quantum paramagnets, focusing on the interplay between spin-orbit couplings and the system's ground state, which, despite being paramagnetic, can convey spin information through its upper branch excitations.
+    
+    By employing the dispersive crystal electric field (CEF) excitations, we describe the upper branch parts in terms of bosonic quasi-particles with distinct flavors within the linear flavor-wave regime. This approach allows us to introduce the concept of the flavor Nernst effect (FNE), a topological spin transport phenomenon that is distinct from magnon Nernst effects observed in ordered systems.
+    
+    Utilizing an effective spin-1 Hamiltonian that incorporates Dzyaloshinskii-Moriya (DM) interactions and significant hard-axis anisotropy, we calculate the flavor Nernst coefficients through linear response theory. Our analysis is further substantiated by examining a 2D pyrochlore thin film with an all-in-all-out Ising axis configuration, where we elucidate the FNE and its sensitivity to temperature, anisotropy, DM interaction, and external magnetic fields.
+    
+    The findings of this study underscore the intrinsic link between the FNE and the Berry curvature of the CEF excitations, a relationship that holds promise for the manipulation of thermal spin currents and the exploration of topological spin transport in quantum paramagnets. This research not only contributes to the theoretical understanding of quantum paramagnets but also sets the stage for future experimental endeavors aimed at harnessing these effects for practical applications in the realm of spintronics and thermal management.
+\end{abstract*}
+
+% 符号表
+% 语法与 LaTeX 表格一致：列用 & 区分，行用 \\ 区分
+% 如需修改格式，可以使用可选参数：
+%   \begin{notation}[ll]
+%     $x$ & 坐标 \\
+%     $p$ & 动量
+%   \end{notation}
+% 可选参数与 LaTeX 标准表格的列格式说明语法一致
+% 这里的 “ll” 表示两列均为自动宽度，并且左对齐
+% \begin{notation}[ll]
+
+% \end{notation}
+
+% 主体部分是论文的核心
+\mainmatter
+
+% 建议采用多文件编译的方式
+% 比较好的做法是把每一章放进一个单独的 tex 文件里，并在这里用 \include 导入，例如
+%   \include{chapter1}
+%   \include{chapter2}
+%   \include{chapter3}
+
+\include{includes/1-Introduction}
+\include{includes/2-Theory}
+\include{includes/3-pyrochlore_model}
+\include{includes/4-Spin_Nernst_Effect}
+\include{includes/5-Summary}
+
+% 附录部分
+\appendix
+
+\chapter{扭矩响应系数}
+本节中，我们将说明方程~\eqref{eq:Heisenberg equation}中力矩项的热响应实际上为零，因此即使自旋U(1)旋转对称性被破坏，热自旋流依然是良定义的。
+
+方程~\eqref{eq:Heisenberg equation}中的力矩项为
+\begin{equation}
+    \tilde{T}^s=-\frac{i}{2}\sum_{\bm{k}}\bm{\Psi}{\bm{k}}^\dagger\left[S^s\Sigma_z H{\bm{k}}-H_{\bm{k}}\Sigma_z S^s\right]\bm{\Psi}{\bm{k}}。
+\end{equation}
+类似于方程~\eqref{eq:nu}，我们可以通过将$\hat{\bm{j}}^s$替换为$\hat{T}^s$，计算由热流引起的力矩响应。根据线性响应理论，力矩响应系数$(\nu_T)^s_y=T^s/\nabla_y T$可表示为
+\begin{align}
+    (\nu_T)^s{\alpha}=\frac{2k_B}{V}\sum_{n=1}^{2m}\sum_{{\bm{k}}}(\tilde{\Omega}T)^s{\alpha\beta,n{\bm{k}}}c_1[g(E_{n{\bm{k}}})],
+    \label{eq:nu_T}
+\end{align}
+其中$(\tilde{\Omega}T)^s{\alpha,n{\bm{k}}}$定义为
+    \begin{equation}
+    (\tilde{\Omega}T)^s{\alpha,n{\bm{k}}}=\sum_{n'\neq n}(\Sigma_z){nn}\frac{2\text{Im}[(T^s{{\bm{k}}}){nn'}(\Sigma_z){n'n'}(v_{\beta{\bm{k}}}){n'n}]}{\left[(\Sigma_z){nn}E_{n{\bm{k}}}-(\Sigma_z){n'n'}E{n'{\bm{k}}}\right]^2}。
+    \label{GsBC_T}
+\end{equation}
+
+图\ref{fig:Torque}(a)和\ref{fig:Torque}(b)表明力矩项的广义Berry曲率$(\tilde{\Omega}T)^s{\alpha,n{\bm{k}}}$确实满足关系$(\tilde{\Omega}T)^s{\alpha,n{\bm{k}}}=-(\tilde{\Omega}T)^s{\alpha,n\bm{-k}}$。图\ref{fig:Torque}(c)和\ref{fig:Torque}(d)则显示该系数为零。
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.88\textwidth]{Fig10-Torque.pdf}
+    \caption{设定参数为 $\eta/J=6, D/J=0.06, B/J=0.6$。(a) 为自旋方向 $s=y$ 时力矩项的广义Berry曲率图，展示的是第一能带的情况。(b) 为自旋方向 $s=z$ 时第一能带的广义 Berry 曲率图。(c) 和 (d) 分别展示了系数 $\nu^y_{xy}$和$\nu^z_{xy}$ 随温度的变化，这些系数实际上均为零。图片来自\cite{lu2024Spin}。}
+    \label{fig:Torque}
+\end{figure}
+
+% 后置部分包含参考文献、声明页（自动生成）等
+\backmatter
+
+% 打印参考文献列表
+\printbibliography
+
+\chapter{硕士期间发表的论文}
+第一作者，Physical Review B（2024）
+
+\begin{acknowledgements}
+  感谢各位老师的帮助和支持，感谢各位师兄对我的帮助。
+\end{acknowledgements}
+
+\end{document}

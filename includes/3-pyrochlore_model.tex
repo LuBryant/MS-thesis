@@ -1,0 +1,194 @@
+\chapter{二维pyrochlore薄层上的模型建立与初步分析}
+\label{chap:pyrochlore_model}
+    \section{Pyrochlore 的晶格结构}
+        几何阻挫的\emph{烧绿石型}（pyrochlore）反铁磁材料，如\ce{Gd2Pt2O7}~\cite{welch2022MagneticStructure}、\ce{NaCdCo2F7}~\cite{kancko2023StructuralSpinglass} 和 \ce{LiGaCr4O8}~\cite{he2021NeutronScattering} 等，是实现量子顺磁相的可能平台之一。为简化起见，我们考虑沿 [111] 方向生长的二维烧绿石薄膜体系（如图~\ref{fig:pyrochlore_lattice} 所示），而非三维体材料。这种准二维烧绿石结构在实际材料中可能实现~\cite{liu2024chiralspinliquidlikestatepyrochlore}。一种较为可行的方法是制备三明治型异质结构，即在绝缘衬底间生长超薄烧绿石层。近年来，分子束外延和脉冲激光沉积技术的进步使得高质量烧绿石薄膜的厚度可达几个晶胞~\cite{fujita2016AllinalloutMagnetic}。研究者还开发了一种新的薄膜原位生长方法，即\emph{重复快速高温合成外延法}（repeated rapid high-temperature synthesis epitaxy, RRHSE）~\cite{kim2019InoperandoSpectroscopic,kim2020StrainEngineeringMagnetic}，以改善薄膜应力松弛问题。
+
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.88\textwidth]{Fig1-Lattice.pdf}
+            \caption{(a) 有 AIAO 伊辛轴的单层 pyrochlore 晶格结构。蓝色箭头为每个格点上的局域伊辛轴。红色箭头为两个基矢 $\bm{a}_1=a(1,0)$ 和 $\bm{a}_2=a(1/2,\sqrt{3}/2)$. (b) 对元胞内每个位置进行编号。磁场 $\bm{B}$ 沿着 $[111]$ 方向。图片来自\cite{lu2024Spin}。}
+            \label{fig:pyrochlore_lattice}
+        \end{figure}
+
+        沿 [111] 轴方向，烧绿石薄膜由五个子晶格构成，形成交替的三角形层和kagome层~\cite{hu2012topological,laurell2017topological}。伊辛轴为体态材料中称为\emph{全进全出}（all-in-all-out, AIAO）的构型~\cite{li2018competing}，每个子晶格的局域伊辛轴方向 $\hat{\bm{z}}_i$ 如表~\ref{tab: local coordinate system} 所示。由于体系的空间反演对称性仍保持，热自旋流响应方程~\eqref{eq:nu} 是明确定义的，而键的反演对称性则被打破，使得DM相互作用非零。DM矢量的方向可由Moriya规则确定~\cite{moriya1960anisotropic}，例如图~\ref{fig:pyrochlore_lattice} 中键12的DM相互作用为
+        \begin{align}
+            \bm{D}_{12}=\frac{D}{\sqrt{2}}(-1,1,0),
+        \end{align}
+        其它键上的 $\bm{D}_{ij}$ 则通过晶格对称性确定。
+        \begin{table}
+            \centering
+            \caption{五个子格的局域坐标系。}
+            \begin{tabular}{cccccc}
+                \hline
+                \hline
+                $\mu$ & 1 & 2 & 3 & 4 & 5\\
+                $\hat{z}_\mu$ &$\frac{1}{\sqrt{3}}[11\bar{1}]$  &$\frac{1}{\sqrt{3}}[\bar{1}\bar{1}\bar{1}]$  &$\frac{1}{\sqrt{3}}[\bar{1}11]$  &$\frac{1}{\sqrt{3}}[1\bar{1}1]$  &$\frac{1}{\sqrt{3}}[\bar{1}\bar{1}\bar{1}]$\\
+                \hline
+                \hline
+            \end{tabular}
+            \label{tab: local coordinate system}
+        \end{table}
+
+        由于我们只考虑单层的 pyrochlore 晶格结构，所以晶格的周期性体现在 Kagome 平面上，在 $[111]$ 方向上没有周期性。因此，只需要考虑所有子格投影在 Kagome 平面上的相对位置即可，其定义为 $\bm{\delta}_{ij}=\bm{r}_j-\bm{r}_i$ ，如图~\ref{fig:delta}所示。
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.45\textwidth]{Fig9-Position_vectors.pdf}
+            \caption{位矢示意图。图片来自\cite{lu2024Spin}。}
+            \label{fig:delta}
+        \end{figure}
+        它们分别为
+        \begin{gather}
+            \bm{\delta}_{13}=(\frac{\sqrt{3}}{2},0,0),\  \bm{\delta}_{34}=(-\frac{\sqrt{3}}{4},\frac{3}{4},0),\\
+            \bm{\delta}_{41}=(-\frac{\sqrt{3}}{4},-\frac{3}{4},0),\ \bm{\delta}_{12}=(\frac{\sqrt{3}}{4}
+            \frac{1}{4},\frac{\sqrt{2}}{2}),\\
+            \bm{\delta}_{32}=(-\frac{\sqrt{3}}{4},\frac{1}{4},\frac{\sqrt{2}}{2}),\  \bm{\delta}_{42}=(0,-\frac{1}{2},\frac{\sqrt{2}}{2}), \\
+            \bm{\delta}_{i5}=-\bm{\delta}_{i2},\\
+            \bm{\delta}_{ij}=-\bm{\delta}_{ji},
+        \end{gather}
+        其中 $\bm{r}_i$ 是 $i$ 格点的位矢。
+
+
+    \section{模型建立}
+       为研究味能斯特效应，我们将方程~\eqref{eq:nu} 应用于一个具体的单层 pyrochlore 晶格模型。在局域坐标系下，自旋哈密顿量~\eqref{H} 可重写为类似于自旋冰的表达形式~\cite{ross2011quantum}：
+        \begin{align}
+            H=&\sum_{<ij>} [J_{zz} S^z_i S^z_j + J_{\pm}(S^+_i S^-_j+\text{H.c.})+ J_{\pm\pm}(\gamma_{ij}S^+_i S^+_j + \gamma^*_{ij}S^-_i S^-_j)\nonumber\\
+            &+ J_{z\pm}(\xi_{ij} S^z_iS^+_j + \xi_{ij}S^+_iS^z_j+\text{H.c.})] + \sum_i (\eta(S^z_i)^2 - B S^z_i),
+            \label{eq:Full_Ham}
+        \end{align}
+        其中耦合常数为
+        \begin{align}
+            J_{zz}&=\frac{1}{3}(2\sqrt{2}D-J),\quad J_\pm=-\frac{1}{6}(\sqrt{2}D+J),\nonumber\\
+            J_{\pm\pm}&=-\frac{1}{3}(\frac{D}{\sqrt{2}}-J),\quad J_{z\pm}=\frac{1}{6}(D+2\sqrt{2}J),
+        \end{align}
+        且 $\gamma_{ij}=-\xi^*_{ij}$ 为键依赖的相位变量，若把 $\gamma_{ij}$ 视为矩阵 $\gamma$ 在 $ij$ 处的元素，我们可以把它表示为一个 $5\times5$ 的矩阵
+        \begin{equation}
+            \gamma=
+            \begin{pmatrix} 
+                0               &1                   &e^{i2\pi/3}         &e^{-i2\pi/3}     &1\\
+                1               &0                   &e^{-i2\pi/3}        &e^{i2\pi/3}      &0\\
+                e^{i2\pi/3}     &e^{-i2\pi/3}        &0                   &1                &e^{-i2\pi/3}\\
+                e^{-i2\pi/3}    &e^{i2\pi/3}         &1                   &0                &e^{i2\pi/3}\\
+                1               &0                   &e^{-i2\pi/3}        &e^{i2\pi/3}      &0
+            \end{pmatrix}.                        
+        \end{equation}
+        
+        在量子顺磁相中，利用线性味表象，通过对BdG哈密顿量~\eqref{eq:Ham} 对角化可获得味激发模式。通过傅里叶变换，动量空间下的BdG哈密顿量可表示为
+        \begin{align}
+            H=\frac{1}{2}\sum_{{\bm{k}}}\bm{\Psi}_{{\bm{k}}}^\dagger H_{{\bm{k}}}\bm{\Psi}_{{\bm{k}}}
+            =\frac{1}{2}\sum_{{\bm{k}}}\bm{\Psi}_{{\bm{k}}}^\dagger 
+            \begin{pmatrix}
+                A_{{\bm{k}}}    & B_{{\bm{k}}}\\
+                B^*_{-{\bm{k}}} & A^*_{-{\bm{k}}}
+            \end{pmatrix}
+            \bm{\Psi}_{{\bm{k}}},
+        \end{align}
+        其中矩阵元分别为
+        \begin{align}
+            A_{ij}({\bm{k}}) =
+            \begin{cases}
+            -\bm{B} \cdot \bm{z}_{i} 
+            \begin{pmatrix}
+            1 & 0\\
+            0 & -1
+            \end{pmatrix} 
+            +\eta I_2  &,i=j,\\
+            0 \cdot I_2  &, (i,j) \in \mathcal{S},\\
+            m_{ij} C_{ij}({\bm{k}}) &,\text{其他情况},
+            \end{cases}
+        \end{align}
+        以及
+        \begin{align}
+            B_{ij}({\bm{k}}) =
+            \begin{cases}
+            0 \cdot I_{2} & ,i=j\quad \text{且} (i,j) \in \mathcal{S},\\
+            n_{ij} C_{ij}({\bm{k}}) & ,\text{其他情况},
+            \end{cases}
+        \end{align}
+        我们定义
+        \begin{gather}
+            m_{ij} =\frac{1}{3}
+            \begin{pmatrix}
+            -\sqrt{2} D-J & \left( -\sqrt{2} D +2J\right) \gamma _{ij}\\
+            \left( -\sqrt{2} D +2J\right) \gamma _{ij}^{*} & -\sqrt{2} D-J
+            \end{pmatrix},\\
+            n_{ij} =\frac{1}{3}
+            \begin{pmatrix}
+            \left( -\sqrt{2} D +2J\right) \gamma _{ij} & -\sqrt{2} D-J\\
+            -\sqrt{2} D-J & \left( -\sqrt{2} D +2J\right) \gamma _{ij}^{*}
+            \end{pmatrix},\\
+            C_{ij}({\bm{k}}) =
+            \begin{cases}
+            2\cos({\bm{k}} \cdot \delta _{ij}) & ,( i,j) \in \mathcal{P},\\
+            e^{i{\bm{k}} \cdot \bm{\delta }_{ij}} & ,\text{其他情况},
+            \end{cases}\\
+            \mathcal{S}=\{(2,5),(5,2)\},\\
+            \mathcal{P}=\{( 1,3) ,( 1,4) ,( 3,4),(3,1),(4,1),(4,3)\}.
+        \end{gather}
+
+        为对角化 BdG 哈密顿量，需找到矩阵 $\mathcal{Q}$ 使得$\bm{\Psi}_{{\bm{k}}}=\mathcal{Q}_{{\bm{k}}}\bm{\psi}_{{\bm{k}}}$，并满足$\mathcal{Q}_{{\bm{k}}}^\dagger H_{{\bm{k}}} \mathcal{Q}_{{\bm{k}}}=\mathcal{E}_{{\bm{k}}}$，其中$\mathcal{E}_{{\bm{k}}}$为对角矩阵，其矩阵元即为本征能量：
+        \begin{align}
+            \mathcal{E}_{{\bm{k}}}=
+            \begin{pmatrix}
+                E _{1{\bm{k}}} & \cdots & 0 &   &   & \\
+                \vdots & \ddots & \vdots & & &\\
+                0 & \cdots & E _{2m{\bm{k}}} &   &  &\\
+                & & & E_{1,-{\bm{k}}}&\cdots  & 0 \\
+                & & & \vdots & \ddots  & \vdots\\
+                & & & 0 &\cdots & E_{2m,-{\bm{k}}}
+            \end{pmatrix}.
+        \end{align}
+
+        为保持玻色对易关系不变 $[\bm{\Psi}^{}_{{\bm{k}}},\bm{\Psi}^\dagger_{{\bm{k}}}]=[\bm{\psi}^{}_{{\bm{k}}},\bm{\psi}^\dagger_{{\bm{k}}}]=\Sigma_z$，有
+        \begin{align}
+            \Sigma_z=[\bm{\Psi}^{}_{{\bm{k}}},\bm{\Psi}^\dagger_{{\bm{k}}}]=\mathcal{Q}^{}_{{\bm{k}}}[\bm{\psi}^{}_{{\bm{k}}},\bm{\psi}^\dagger_{{\bm{k}}}] \mathcal{Q}^\dagger_{{\bm{k}}} = \mathcal{Q}_{{\bm{k}}} \Sigma_z \mathcal{Q}^\dagger_{{\bm{k}}},
+            \label{eq:Normalize_Q}
+        \end{align}
+        因此$\mathcal{Q}$是\emph{仿酉矩阵}（paraunitary matrix），满足$\mathcal{Q}_{{\bm{k}}}^\dagger = \symup{\Sigma}_z \mathcal{Q}_{{\bm{k}}}^{-1}\symup{\Sigma}_z$，由此得到
+        \begin{equation}
+            \mathcal{Q}^\dagger_{{\bm{k}}} H_{{\bm{k}}} \mathcal{Q}^{}_{{\bm{k}}} = \mathcal{E}_{{\bm{k}}} \quad
+            \Rightarrow \quad \mathcal{Q}^{-1}_{{\bm{k}}} \Sigma_z H_{{\bm{k}}}\mathcal{Q}_{{\bm{k}}}= \Sigma_z \mathcal{E}_{{\bm{k}}}.
+        \end{equation}
+        因此，BdG哈密顿量的本征能量可以通过计算$\symup{\Sigma}_z H_{{\bm{k}}}$的正本征值获得。
+        
+        
+        图~\ref{fig:dis_pyro} 为参数 $\eta/J = 6$，$D/J=0.06$ 和 $B/J=0.6$ 时的线性味波色散关系。各向异性 $\eta>0$ 完全打开了能隙，外磁场则破坏了时间反演对称性带来的能带简并。此外，与三维体材料相比，二维薄膜烧绿石晶格的立方对称性被打破，从而导致10条完全分离的能带。
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.86\textwidth]{Fig2-Dispersion.pdf}
+            \caption{利用线性味波理论得到的单层 pyrochlore 晶格中 CEF 激发的能带色散。此处我们取 $\eta/J = 6$， $D/J=0.06$ 和 $B/J=0.6$. 图片来自\cite{lu2024Spin}。}
+            \label{fig:dis_pyro}
+        \end{figure}
+
+    \section{对称性分析}
+        在计算能斯特系数之前，我们注意到味能斯特系数张量 $\nu^s_{\alpha\beta}$ 在对称性操作 $\mathcal{R}$ 对应的矩阵表示 $R$ 作用下变换为~\cite{suzuki2017cluster,mook2019thermal,li2020intrinsic}
+        \begin{align}
+        \nu^s_{\alpha\beta} = \det(R) R_{s s'}R_{\alpha\alpha'}R_{\beta\beta'} \nu^{s'}_{\alpha'\beta'}。
+        \end{align}
+        因此，能斯特系数张量受晶格对称性的严格约束。
+        
+        类似于kagome晶格磁振子能斯特效应中的情况~\cite{li2020intrinsic}，薄膜烧绿石晶格存在两个关键对称性：即对$yz$平面的镜面反射与时间反演联合操作$\mathcal{M}_{yz} \mathcal{T}$，以及绕$z$轴的三重旋转对称性$\mathcal{C}_{3z}$，要求系数张量的形式为
+        \begin{align}
+        [\nu^x\!,\nu^y\!,\nu^z]=\begin{bmatrix}
+            \begin{pmatrix}
+            -\nu^y_{xy}     & 0\\
+            0                  & \nu^y_{xy}\\
+        \end{pmatrix}\!,\begin{pmatrix}
+            0                  & \nu^y_{xy}\\
+            \nu^{y}_{xy}    & 0
+        \end{pmatrix}\!\begin{pmatrix}
+            0                  & \nu^z_{xy}\\
+            -\nu^z_{xy}     & 0
+        \end{pmatrix}
+        \end{bmatrix}。
+        \end{align}
+        因此，在此二维薄膜烧绿石体系中，仅存在两个独立的能斯特系数$\nu^y_{xy}$和$\nu^z_{xy}$。值得注意的是，尽管经典情况下全进全出伊辛轴构型使得$\sum_i\langle S_i^y \rangle=0$，但自旋-$y$方向的横向输运在对称性上仍然是允许的。
+        
+    \section{本章小结}
+
+    在本章中，我们对二维 pyrochlore 薄层上的模型进行了系统性的建立与初步分析。首先，我们详细描述了 pyrochlore 的晶格结构，聚焦于沿 [111] 方向生长的二维薄膜体系。研究表明，该体系由五个子晶格构成，形成交替的三角形层和 kagome 层，伊辛轴呈现 AIAO 的构型。通过 Moriya 规则，我们进一步确定了 DM 相互作用的方向，为后续模型构建提供了结构基础。
+
+    随后，我们建立了描述该体系的自旋哈密顿量，并将其改写为类似于自旋冰的表达形式，以简化分析过程。通过线性味表象和 BdG 哈密顿量的对角化，我们计算了味激发的能带色散关系。研究结果表明，在特定参数（如 $\eta/J = 6$、$D/J = 0.06$ 和 $B/J = 0.6$）下，各向异性 $\eta$ 和外磁场 $B$ 对能带结构产生显著影响：各向异性完全打开能隙，而外磁场则打破时间反演对称性导致的能带简并，形成了10条分离的能带。
+
+    此外，我们进行了对称性分析，探讨了味能斯特系数张量在晶格对称性约束下的行为。结合镜面反射与时间反演联合操作 $\mathcal{M}_{yz} \mathcal{T}$ 以及三重旋转对称性 $\mathcal{C}_{3z}$，我们得出结论：在二维 pyrochlore 薄膜体系中，仅存在两个独立的能斯特系数 $\nu^y_{xy}$ 和 $\nu^z_{xy}$。这一结果揭示了体系对称性对横向热输运性质的重要影响。
+
+    综上所述，本章通过晶格结构分析、模型构建以及能带和对称性计算，系统研究了二维 pyrochlore 薄层体系的物理性质，为理解其味激发和能斯特效应奠定了坚实的理论基础，同时为后续深入探索提供了必要的前提和方向。

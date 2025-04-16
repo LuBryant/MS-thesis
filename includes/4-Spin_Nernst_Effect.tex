@@ -1,0 +1,107 @@
+\chapter{二维pyrochlore薄层上的自旋能斯特效应}
+\label{chap:Spin_Nernst_Effect}
+    \section{味能斯特系数与温度的变化关系}
+        在图~\ref{fig:dis_pyro} 采用相同的参数选择下，我们在图~\ref{fig:coe_with_T} 中绘制了两种不同味的能斯特系数 $\nu^y_{xy}$ 和 $\nu^z_{xy}$ 随温度的变化情况。我们发现 $\nu^y_{xy}$ 确实非零，但比 $\nu^z_{xy}$ 低一个数量级，这反映了在非共线伊辛轴配置下，自旋非守恒效应导致 $S^y_{n{\bm{k}}}=\langle\psi_{n{\bm{k}}}|S^y|\psi_{n{\bm{k}}}\rangle$ 尽管很小但仍然是有限的。
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.88\textwidth]{Fig3-TFNC.pdf}
+            \caption{(a) 味能斯特系数 $\nu^y_{xy}$ 和 $\nu^z_{xy}$ 随温度的变化。设定 $\eta/J=6$，$D/J=0.06$，$B/J=0.6$。$\nu^y_{xy}$ 比 $\nu^z_{xy}$ 小一个数量级。 (b) $\mathcal{D}^y_{xy}(E) c_1[g(E/k_B T)]$ 随 $k_B T/J$ 和 $E/J$ 的变化。图中垂直虚线对应 $k_B T/J=0.58$，$k_B T/J=1.05$ 和 $k_B T/J=1.75$。图片来自\cite{lu2024Spin}。}
+            \label{fig:coe_with_T}
+        \end{figure}
+    
+        整体而言，随着温度升高，味能斯特系数的数值增加，因为方程~\eqref{eq:nu} 中的 $c_1$ 函数在较高温度下取值更大。然而，随温度升高，高能带的自旋Berry曲率贡献变得更加不可忽略，从而导致 $\nu^y_{xy}$ 呈现非单调行为。
+        
+        为了更详细地理解温度效应，我们在图~\ref{fig:colored dispersion and DOsB} 中通过
+        \begin{equation}
+            L(\symup{\tilde{\Omega}}^s_{xy})=\text{sgn}(\symup{\tilde{\Omega}}^s_{xy})\ln(1+|\symup{\tilde{\Omega}}^s_{xy}|)
+        \end{equation}
+        对能带进行着色，其中 $L(x)=\text{sgn}(x)\ln{(1+|x|)}$ 为对数函数。结果显示，自旋Berry曲率的非零值主要集中在反交叉点处，并且两个能带的自旋Berry曲率符号相反。
+
+        \begin{figure}[b]
+            \centering
+            \includegraphics[width=\textwidth]{Fig4-DOsB.pdf}
+            \caption{由对数化的自旋 Berry 曲率 $L(\tilde{\Omega}^s_n)$ 着色的色散关系，以及 DOS $\mathcal{D}(E)$ 和 DOsB $\mathcal{D}^s_{\alpha \beta}(E)$。(a) 为 $s=y$ 的情况，(b) 为 $s=z$ 的情况。图片来自\cite{lu2024Spin}。}
+            \label{fig:colored dispersion and DOsB}
+        \end{figure}
+        
+        在图~\ref{fig:colored dispersion and DOsB} 中，我们还展示了\emph{态密度}（Density of states, DOS） $\mathcal{D}(E)$ 以及\emph{自旋Berry曲率密度}（Density of spin Berry curvature, DOsB） $\mathcal{D}^s_{\alpha\beta}(E)$，其定义如下：
+        \begin{align}
+            \mathcal{D}(E)&= \int_{BZ} \sum_n \frac{d{\bm{k}}}{(2\pi)^2} \delta(E - E_n({\bm{k}})),\\
+            \mathcal{D}^s_{\alpha\beta}(E)&= \int_{BZ} \sum_n \frac{d{\bm{k}}}{(2\pi)^2} \delta(E - E_n({\bm{k}})) \symup{\tilde{\Omega}}^s_{\alpha\beta,n{\bm{k}}}.
+        \end{align}
+        由于低能带在玻色子统计下对 味能斯特效应 贡献更为显著，并且最低的四条能带在能量上与更高能带分离，因此我们主要关注这四条能带。可以清晰地看到在4.8$J$以下DOsB呈现交替符号的显著变化，从而导致 $\nu^y_{xy}$ 的非单调行为。
+        
+        在数值计算 DOS 和 DOsB 时，由于程序上无法实现 $\delta(x)$ 函数，故我们选择使用另一个函数来近似 $\delta(x)$ 函数。在本文中，我们选取
+        \begin{equation}
+            \delta(x-x_0) \sim \frac{1}{2\sigma } e^{-\frac{\pi ( x-x_{0})^{2}}{\sigma ^{2}}}
+        \end{equation}
+        这是一个变形的高斯函数。当 $\sigma$ 较小的时候，上式有着非常好的近似效果。但是需要注意，$\sigma$ 不是越小越好，需要选择适当的值。如果 $\sigma$ 过小，会导致图像不光滑，产生很多锯齿。如果 $\sigma$ 过大，则无法很好地满足 $\delta$ 函数的筛选性质，使得计算不够准确。经过估算，$\delta$ 函数的宽度在 $2dk$ 时是最佳的。在本文中，我们取 $\sigma = 1.5 \times 10^{-2}$.
+
+        从图~\ref{fig:coe_with_T}(a) 可以看出，$\nu^y_{xy}$ 在达到某一温度后开始显著增加，并在 $k_B T/J=0.58$ 处达到最大增长速率。随后，随着温度升高，该系数在 $k_B T/J=1.05$ 处达到峰值，然后下降，在 $k_B T/J=1.75$ 处达到局部最小值，之后又逐渐回升。为了解释 $\nu^y_{xy}$ 的行为，我们在图~\ref{fig:coe_with_T}(b) 中绘制了 $\mathcal{D}^y_{xy}(E) c_1[g(E/k_B T)]$ 随 $k_B T/J$ 和 $E/J$ 的变化情况。对于 $\mathcal{D}^y_{xy}(E)$，在 $3.34 <E/J <3.79$ 范围内主要为正（红色），在 $3.79< E/J <4.41$ 范围内主要为负（蓝色），如图~\ref{fig:colored dispersion and DOsB} 所示。因此，我们利用这些关键数据点在图~\ref{fig:coe_with_T}(b) 中用虚线标记了几个区域。当 $k_B T/J<0.58$ 时，我们在任意能量水平都未观察到蓝色区域。当温度处于 $0.58< k_B T/J <1.05$ 时，负区域IV减缓了 $\nu^y_{xy}$ 的增长。当温度进入 $1.05< k_B T/J <1.75$ 区间时，负区域V（尤其是围绕 $E/J=4$ 的深蓝区域）逆转了 $\nu^y_{xy}$ 的增长趋势。随着温度进一步升高，区域IX和III逐渐变红，导致 $\nu^y_{xy}$ 恢复增长趋势。
+
+        
+    \section{味能斯特系数与各项异性相互作用的变化关系}
+        除了 $k_B T$ 之外，另一个特征能量尺度是各向异性 $\eta$，它决定了从顺磁基态到晶体场激发态的能隙。如图~\ref{fig:D0.06_B0.6_eta} 所示，较小的 $\eta$ 使得 CEF 能级更容易被热激发，从而导致更强的热响应。以焦绿石材料的典型晶格常数 $d\sim 10$ \AA~\cite{wen2021epitaxial} 作为薄膜厚度的估计，并考虑温度梯度 $\nabla_z T\sim 10$ K/mm~\cite{lin2022Evidence} 及图~\ref{fig:D0.06_B0.6_eta} 所采用的相同参数，可得到实验可观测的 $z(y)$ 极化自旋流，其大小可达 $10^{-11}$ ($10^{-12}$) J/m$^2$。
+
+        \begin{figure}[th]
+            \centering
+            \includegraphics[width=0.9\textwidth]{Fig5-etaFNC.pdf}
+            \caption{在 $k_B T/J=2$ 时，味能斯特系数（单位为 $k_B$）随 $\eta$ 的变化情况。其中 $D/J=0.06$，$B/J=0.6$。图片来自\cite{lu2024Spin}。}
+            \label{fig:D0.06_B0.6_eta}
+        \end{figure}
+        
+        显然，除了能量尺度的影响之外，能带的自旋 Berry 曲率本身也会显著影响 味能斯特效应。如前所述，在共线情况下，自旋 Berry 曲率与 Berry 曲率直接相关，因此即使在更一般的非共线情况下，味能斯特效应 也应当反映能带的几何结构。例如，如果重现由动量分辨的自旋 $z$ 分量 $S^z_{n{\bm{k}}} \equiv \langle \psi_{n{\bm{k}}} | S^z | \psi_{n{\bm{k}}} \rangle$ 进行着色的能带色散（如图~\ref{fig:Sz-Dispersion} 所示），则可以观察到，较低的三个能带主要为自旋向上态。因此，自旋 Berry 曲率可近似由能带 Berry 曲率给出：
+        \begin{equation}
+            \tilde{\Omega}^z_{xy,n{\bm{k}}} \sim \left( \frac{1}{V} \sum_{\bm{k}} S^z_{n{\bm{k}}} \right) \Omega_{xy,n{\bm{k}}},
+        \end{equation}
+        从而 味能斯特效应 间接地反映了能带的几何与拓扑特性。
+
+        \begin{figure}[bht]
+            \centering
+            \includegraphics[width=0.9\textwidth]{Fig6-Sz_Dispersion.pdf}
+            \caption{由动量分辨的自旋 $z$ 分量 $\bra{\psi_{n{\bm{k}}}} S^z \ket{\psi_{n{\bm{k}}}}$ 进行着色的能带色散关系。图片来自\cite{lu2024Spin}。}
+            \label{fig:Sz-Dispersion}
+        \end{figure}
+        
+    \section{味能斯特系数与DM相互作用的变化关系}
+        由于Dzyaloshinskii-Moriya（DM）相互作用可以显著改变能带拓扑，我们在图~\ref{fig:dmi_with_t} 中研究了不同DM相互作用强度 $D$ 下 $\nu^{z}_{xy}$ 随温度 $T$ 的变化关系。
+
+        \begin{figure}[th]
+            \centering
+            \includegraphics[width=0.83\textwidth]{figures/Fig7-DFNC.pdf}
+            \caption{不同参数下的能斯特系数。我们设定 $\eta/J=6$，$B/J=0.6$，并考察不同 $D/J$ 的情况。同时，我们标注了最低四条能带的Chern数。图片来自\cite{lu2024Spin}。}
+            \label{fig:dmi_with_t}
+        \end{figure}
+        
+        对于每条曲线，从左到右的四个数值表示自底向上最低四条能带的Chern数，并且这些数值与曲线的行为相匹配。例如，当 ${D/J=-0.2}$ 或 $-0.1$ 时，最低能带具有正的Chern数 $+3$，从而导致正的能斯特系数。然而，与 $D/J=-0.2$ 时产生的较大正响应相比，在 $D/J=-0.1$ 的情况下，由于第二条能带的Chern数为 $-3$，较大的负值抑制了 $\nu^z_{xy}$ 随温度升高的增长。
+        
+        相反，当 $D/J=0$，$0.1$ 和 $0.2$ 时，最低能带的Chern数为 $-1$，从而导致负的能斯特系数。值得注意的是，由于伊辛轴的非共线性，即使在 $D=0$ 时，能带的Chern数以及能斯特系数仍然不为零。由于DM相互作用的微小偏差能够显著改变能带拓扑及热响应，因此在应变工程的帮助下，可以较容易地控制热自旋电流，特别是在层状系统或异质结构中~\cite{kim2020StrainEngineeringMagnetic,zhang2021strain,xu2022strain}。在这些情况下，沿层状方向施加的应变不仅可以调控体相或界面DM矢量，还能调整伊辛轴的方向。因此，我们的理论为操控热自旋电流提供了一条潜在路径，并可能在压电自旋电子学（piezo-spintronics）领域找到应用~\cite{nunez2014theory,ulloa2017piezospintronic,liu2019antiferromagnetic}。
+        
+    \section{味能斯特系数与外磁场的变化关系}
+        由于磁场不仅可以改变能带色散关系，还会影响自旋Berry曲率的分布，因此味能斯特效应也可以通过磁场进行调控。然而，与热霍尔效应不同的是，反转磁场并不会翻转热自旋电流的响应，这是因为自旋Berry曲率在时间反演对称性下保持不变。
+
+        在图~\ref{fig:Dz6_D0.06_B_T} 中，我们展示了外加磁场 $B$（以 $J$ 为单位）下 $
+        nu^y_{xy}$ 和 $
+        nu^z_{xy}$ 在不同温度下的变化关系。虚线部分是在 $B=0$ 附近的外推数据，以节省在极小能隙下的计算时间。由于在小磁场趋于零的过程中，没有其他能隙闭合或拓扑相变发生，因此这些外推数据应当能够很好地反映该系数变化的趋势。我们的计算结果表明，响应系数 $
+        nu^y_{xy}$ 和 $
+        nu^z_{xy}$ 确实是 $B$ 的偶函数，并且当 $B\to0$ 时，它们的取值不一定趋于零。
+        \begin{figure}[htp]
+            \centering
+            \includegraphics[width=0.4\textwidth]{figures/Fig8-BFNC.pdf}
+            \caption{不同温度 $k_B T/J$ 下的 flavor Nernst 系数随磁场 $B$ 的变化。(a) 对应于 $\nu^y_{xy}$，(b) 对应于 $\nu^z_{xy}$。参数取值为 $\eta/J=6$，$D/J=0.06$。虚线表示计算数据的外推结果。图片来自\cite{lu2024Spin}。}
+            \label{fig:Dz6_D0.06_B_T}
+        \end{figure}
+
+    \section{本章小结}
+
+    在本章中，我们系统研究了二维 \textit{pyrochlore} 薄层上的自旋能斯特效应，并深入探讨了味能斯特系数随温度、各项异性相互作用、DM 相互作用以及外磁场的变化规律及其物理机制。
+
+    首先，我们在非共线伊辛轴配置下，分析了味能斯特系数 $\nu^y_{xy}$ 和 $\nu^z_{xy}$ 随温度的变化特征。研究表明，$\nu^y_{xy}$ 虽非零，但其数值比 $\nu^z_{xy}$ 小一个数量级，这源于自旋非守恒效应的影响。通过计算自旋 Berry 曲率在能带中的分布，并结合态密度（DOS）和自旋 Berry 曲率密度（DOsB）的分析，我们揭示了 $\nu^y_{xy}$ 非单调行为的来源，即低能带和高能带的自旋 Berry 曲率贡献随温度变化的竞争效应。
+
+    其次，我们考察了味能斯特系数与各项异性相互作用 $\eta$ 的依赖关系。结果显示，较小的 $\eta$ 减小了晶体场激发能隙，使能级更容易被热激发，从而显著增强热响应。同时，自旋 Berry 曲率与能带几何结构的关联表明，味能斯特效应间接反映了系统的拓扑特性。
+
+    接着，我们研究了 Dzyaloshinskii-Moriya（DM）相互作用对味能斯特系数的影响。DM 相互作用通过改变能带拓扑结构显著调控了 $\nu^z_{xy}$ 的行为。我们发现，不同 DM 强度下 $\nu^z_{xy}$ 随温度的变化与最低四条能带的 Chern 数密切相关，为通过应变工程操控热自旋电流提供了理论依据。
+
+    最后，我们分析了外磁场对味能斯特系数的影响。计算结果表明，$\nu^y_{xy}$ 和 $\nu^z_{xy}$ 是磁场 $B$ 的偶函数，且在 $B \to 0$ 时不一定趋于零。这一特性源于自旋 Berry 曲率在时间反演对称性下的不变性，区别于热霍尔效应的行为。
+
+    综上所述，本章通过数值计算和理论分析，揭示了二维 \textit{pyrochlore} 薄层中自旋能斯特效应的多场调控机制，阐明了温度、各项异性、DM 相互作用和外磁场对味能斯特系数的综合影响。研究成果不仅加深了我们对自旋能斯特效应物理本质的理解，还为通过外部参数调控热自旋电流提供了理论支持，具有潜在的压电自旋电子学应用价值。

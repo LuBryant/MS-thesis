@@ -1,0 +1,150 @@
+\chapter{量子顺磁体与自旋能斯特效应的理论基础}
+\label{chap:theory}
+\section{量子顺磁体自旋模型}
+一般而言，对于具有\emph{自旋-轨道耦合}（Spin-orbit coupling, SOC）的\emph{莫特绝缘体}（Mott insulator）来说，磁性离子上存在一个局域的总角动量 $\bm{J}$。在单离子极限下，每个离子存在 $2|\bm{J}|+1$ 个能级状态。在\emph{晶体场}(crystal electric field, CEF)和自旋-轨道耦合作用下，这些状态会自然地分裂为基态与若干激发的晶体场多重态。为简单阐明量子顺磁基态与晶体场激发态的基本概念，我们假设基态为单重态，而晶体场第一激发态形成一个二重态，其激发能量为 $\eta>0$，并忽略更高阶晶体场激发态的影响。因此，局域磁矩的三个状态可通过一个有效自旋 $S=1$ 来描述，并在各个格点上都具有各向异性项 $\eta(\hat{\bm{z}}_i\cdot\bm{S}_i)^2$，其中较低的单重态对应于 ${\hat{\bm{z}}_i\cdot\bm{S}_i =0}$，而较高的二重态对应于 ${\hat{\bm{z}}_i\cdot\bm{S}_i = \pm 1}$。这里的 $\hat{\bm{z}}_i$ 是由晶格格点 $i$ 处的局域配位环境决定的局域伊辛轴~\cite{dun2016magnetic,dun2020quantum}。
+
+相应地，相邻晶体场态之间的相互作用可表示为此 spin-1 表象下的自旋交换耦合。由于局域配位环境和由配体介导的电子跃迁作用~\cite{pesin2010mott}，除了一般的海森堡交换耦合 $J$ 之外，我们考虑了更一般的有自旋-轨道耦合导致的反对称 Dzyaloshinskii-Moriya (DM) 相互作用 $\bm{D}_{ij}$~\cite{moriya1960anisotropic,dzyaloshinsky1958thermodynamic}的情况。因此，结合局域格点上的单离子各向异性 $\eta$ 相互作用，有效自旋哈密顿量可表示为
+\begin{equation}
+    H=\sum_{\langle ij\rangle}\left(J \bm{S}_i\cdot\bm{S}_j+\bm{D}_{ij}\cdot\bm{S}_i\times\bm{S}_j\right)+\sum_i\left[\eta(\hat{\bm{z}}_i\cdot\bm{S}_i)^2-B(\hat{\bm{z}}\cdot \hat{\bm{z}}_i)(\hat{\bm{z}}_i\cdot\bm{S}_i)\right],
+    \label{H}
+\end{equation}
+其中，$B$ 为沿全局 $z$ 方向 $\hat{\bm{z}}$ 施加磁场引起的塞曼能级劈裂。
+
+尽管随相互作用参数变化的完整量子基态磁相图难以获得，但在本文中，我们关注具有较大各向异性限制 $\eta>0$ 的情况，此时体系的基态应为每个格点 $i$ 处单重态 $\ket{\hat{\bm{z}}_i\cdot\bm{S}_i=0}$ 的直积态，即
+\begin{equation}
+    \ket{\text{量子顺磁相}}\equiv\prod_{i} \ket{\hat{\bm{z}}_i\cdot\bm{S}_i=0},
+\end{equation}
+最低的几个激发态则来自于 $\hat{\bm{z}}_i\cdot\bm{S}_i=\pm 1$，其能量约为 $\eta\pm B$。当其它交换相互作用较小，即 $J,\bm{D}_{ij}\ll\eta$ 时，它们将主要影响激发态的色散能带结构。因此，在温度满足 $k_BT\gtrsim \eta\pm B$ 时，晶体场激发态可以通过热激发进行激活，从而使得这些激发态的热输运成为可能。
+
+\section{线性味波理论}
+    为了获得低能激发的色散关系，我们采用了所谓的\emph{线性味波理论}（Linear flavor-wave theory）~\cite{joshi1999elementary,li19984}。由于基态是顺磁的且不是有序的，不能在此应用基于自旋有序系统的 Holstein-Primakoff （HP）变换展开的线性自旋波理论~\cite{holstein1940field}。作为替代，我们将 $\hat{\symbf{z}}_i\cdot\symbf{S}_i=0,\pm 1$ 表示的态（在后文中，我们将$-1$表示为$\bar{1}$）视为三种不同的味，并将系统限制在这些状态所张成的希尔伯特空间中，每个格点 $i$ 的基态为$|f\rangle_i\equiv|\hat{\symbf{z}}_i\cdot\symbf{S}_i=f\rangle$。这些基态组成了 SU(3) 的表示，其生成元为 $G_f^{f'}(i)=|f\rangle_i\langle f'|_i$。可以很容易地注意到 $G_f^{f'}(i)=\left[G_f'^{f}(i)\right]^\dagger$，我们进一步要求其满足归一化条件 $1=G_0^{0}(i)+G_1^{1}(i)+G_{\bar{1}}^{\bar{1}}(i)$。
+    
+    于是，自旋升降算符可以写为~\cite{ma2024upper}
+    \begin{align}
+        S_i^+&\equiv(\hat{\symbf{x}}_i+i\hat{\symbf{y}}_i)\cdot\symbf{S}_i\nonumber\\
+        &=\sum_{ff'}\langle f|S_i^+|f' \rangle|f \rangle\langle f'|=\sqrt{2}\left[G_1^0(i)+G_0^{\bar{1}}(i)\right],\\
+        S_i^-&\equiv(\hat{\symbf{x}}_i-i\hat{\symbf{y}}_i)\cdot\symbf{S}_i\nonumber\\
+        &=\sum_{ff'}\langle f|S_i^-|f' \rangle|f \rangle\langle f'|=\sqrt{2}\left[G_{\bar{1}}^0(i)+G_0^1(i)\right].
+    \end{align}
+    类似地，
+    \begin{align}
+         S_i^z&\equiv\hat{\symbf{z}}_i\cdot\symbf{S}_i=\sum_{ff'}\langle f|S_i^z|f' \rangle|f \rangle\langle f'|=G_1^1(i)-G_{\bar{1}}^{\bar{1}}(i),\\
+        (S_i^z)^2&=\sum_{ff'}\langle f|(S_i^z)^2|f' \rangle|f \rangle\langle f'|=G_1^1(i)+G_{\bar{1}}^{\bar{1}}(i).
+    \end{align}
+    这里，$(\hat{\symbf{x}}_i,\hat{\symbf{y}}_i,\hat{\symbf{z}}_i)$ 为格点 $i$ 的局部坐标系，因为味是由局部伊辛轴$\hat{\symbf{z}}_i$定义。
+    
+    根据\emph{杨表}（Young tableaux）~\cite{kim2017linear}，SU(3) 代数可以通过两个玻色子 $b$ 和 $\bar{b}$ 来重现，它可以表示为：
+    \begin{align}
+        G_1^1(i)&=b^\dagger_ib_i,\\
+        G_{\bar{1}}^{\bar{1}}(i)&=\bar{b}^\dagger_i\bar{b}_i,\\
+        G_0^0(i)&=1-b^\dagger_ib_i-\bar{b}^\dagger_i\bar{b}_i,\\
+        G_{\bar{1}}^{1}(i)&=\bar{b}^\dagger_ib_i,\\
+        G_1^0(i)&=b^\dagger_i\sqrt{1-b^\dagger_ib_i-\bar{b}^\dagger_i\bar{b}_i}\approx b^\dagger_i,\\
+        G_{\bar{1}}^0(i)&=\bar{b}^\dagger_i\sqrt{1-b^\dagger_ib_i-\bar{b}^\dagger_i\bar{b}_i}\approx \bar{b}^\dagger_i,
+    \end{align}
+    于是我们可以立即得到 $\symbf{S}_i$ 的线性味波表示：
+    \begin{align}
+        \left\{\begin{array}{lll}
+         S_i^z&=b^\dagger_i b_i-\bar{b}^\dagger_i \bar{b}_i,\\
+         S_i^-&=\sqrt{2}(\bar{b}^\dagger_i+b_i),\\
+         S_i^+&=\sqrt{2}(\bar{b}_i+b^\dagger_i),
+        \end{array}
+        \right.
+    \end{align}
+    从物理上讲，玻色子算符 $b^\dagger_i$ 和 $\bar{b}^\dagger_i$（$b_i$和$\bar{b}_i$）分别创造（湮灭）量子顺磁基态具有“磁味” $\hat{\symbf{z}}_i\cdot\symbf{S}_i=+1$ 和 $\hat{\symbf{z}}_i\cdot\symbf{S}_i=-1$ 的激发。
+    
+    一般来说，$\hat{\symbf{z}}_i$ 在每个格点 $i$ 上有不同的取向，因此全局自旋的 U(1) 对称性被破缺。这类似于非共线反铁磁有序相，在这种相中，玻色子算符的配对项是存在的，且需要进行粒子-空穴对偶化来产生Bogoliubov-de Gennes（BdG）哈密顿量~\cite{del2004quantum}。因此，在动量空间中，有 $m$ 个子格的系统哈密顿量方程~\eqref{H}可以写成粒子-空穴对称形式：$H=\frac{1}{2}\sum_{\symbf{k}}\symbf{\Psi}_{\symbf{k}}^\dagger H_{\symbf{k}}\symbf{\Psi}_{\symbf{k}}$，其中
+    \begin{gather}
+        H_{\symbf{k}}=
+        \begin{pmatrix}
+            A_{\symbf{k}} & B_{\symbf{k}}\\
+            B^*_{-\symbf{k}} & A^*_{-\symbf{k}}
+        \end{pmatrix},\label{eq:Ham}\\
+        \symbf{\Psi}_{\symbf{k}}\!\!=\!\!\left(b_{1{\symbf{k}}},\!\bar{b}_{1{\symbf{k}}},...,b_{m{\symbf{k}}},\!\bar{b}_{m{\symbf{k}}},\!b^\dagger_{1,-{\symbf{k}}},\!\bar{b}^\dagger_{1,-{\symbf{k}}},...,b^\dagger_{m,-{\symbf{k}}},\!\bar{b}^\dagger_{m,-{\symbf{k}}}\right)^{\mathrm{T}}\!.
+    \end{gather}
+    味波激发的能带色散可以通过 $\symup{\symup{\Sigma}}_z H_{\symbf{k}}$ 的正特征值来确定，其中
+    \begin{equation}
+        \symup{\Sigma}_z=
+        \begin{pmatrix}
+            1 & 0\\
+            0 & -1
+        \end{pmatrix}
+        \otimes I_{2m},
+    \end{equation}
+    $I_{2m}$ 是 $2m\times 2m$ 的单位矩阵。
+    
+    \section{线性响应理论}
+    已有研究表明，具有 DM 相互作用和 / 或非共线伊辛轴的情况下，CEF 激发可能在时间反演对称性破坏时（如外加磁场），而具有非平凡的拓扑~\cite{ma2024upper}。在来自第 $n$ 个拓扑能带的有限 Berry 曲率 $\symbfup{\Omega}_{n{\symbf{k}}}$ 的作用下，激发的波包将会获得一个横向的反常速度，如下表达式的第二项~\cite{xiao2010berry,cheng2016spin}：
+    \begin{align}
+        \dot{\symbf{r}}_n=\frac{1}{\hbar}\frac{\partial E_{n{\symbf{k}}}}{\partial {\symbf{k}}}-\dot{{\symbf{k}}}\times\symbfup{\Omega}_{n{\symbf{k}}},
+    \end{align}
+    其中 $\symbf{r}_n$ 和 $E_{n{\symbf{k}}}$ 分别是第$n$个波函数的包络中心和能带色散，自旋部分的信息是包含在波包中的。由于 CEF 激发还携带“味”，类似于电子的量子自旋霍尔效应~\cite{kane2005quantum} 和拓扑磁子的自旋能斯特效应~\cite{cheng2016spin,zyuzin2016Magnon}，如果 $\symbfup{\Omega}_{n{\symbf{k}}}\neq 0$，我们也预期会有\emph{味能斯特效应}（flavor Nernst effect, FNE），即可以通过沿$\beta$方向的纵向温度梯度诱发沿$\alpha$方向流动的具有自旋极化$s$的横向自旋电流，公式如下：
+    \begin{align}
+        j^s_\alpha=\nu^s_{\alpha\beta}\nabla_\beta T.
+    \end{align}
+    这里，$\nu^s_{\alpha\beta}$ 是能斯特系数。
+    
+    通过引入海森堡运动方程~\cite{matsumoto2011theoretical,matsumoto2011rotational,li2020intrinsic}，自旋角动量算符 $\tilde{\symbf{S}}$ 的时间演化可以写成：
+    \begin{align}
+        \frac{\partial}{\partial t}\tilde{\symbf{S}}=i[H,\tilde{\symbf{S}}]=-\nabla\cdot\tilde{\symbf{j}}+\tilde{\symbf{T}},
+        \label{eq:Heisenberg equation}
+    \end{align}
+    其中
+    \begin{gather}
+        \tilde{\symbf{S}}=\sum_{\symbf{k}}\symbf{\Psi}^\dagger_{\symbf{k}}(S^x,S^y,S^z)\symbf{\Psi}_{\symbf{k}},\\
+        S^{s}=\text{Diag}(\hat{\symbf{s}}\cdot\hat{\symbf{z}}_1,\dots,\hat{\symbf{s}}\cdot\hat{\symbf{z}}_m,\hat{\symbf{s}}\cdot\hat{\symbf{z}}_1,\dots,\hat{\symbf{s}}\cdot\hat{\symbf{z}}_m)\otimes
+        \begin{pmatrix}
+            1 & 0\\
+            0 & -1
+        \end{pmatrix},
+    \end{gather}
+    自旋电流算符为
+    \begin{equation}
+        \tilde{\symbf{j}}^s=\frac{1}{4}\sum_{\symbf{k}}\symbf{\Psi}_{\symbf{k}}^\dagger\left[\symbf{v}_{{\symbf{k}}}\symup{\Sigma}_z S^s+S^s\symup{\Sigma}_z\symbf{v}_{\symbf{k}}\right]\symbf{\Psi}_{\symbf{k}}
+    \end{equation}
+    其中 $\symbf{v}_{{\symbf{k}}}=\nabla_{\symbf{k}} H_{\symbf{k}}$，方程~\ref{eq:Heisenberg equation}最后一项
+    \begin{equation}
+        \tilde{T}^s=-\frac{i}{2}\sum_{\symbf{k}}\symbf{\Psi}_{\symbf{k}}^\dagger\left[S^s\symup{\Sigma}_z H_{\symbf{k}}-H_{\symbf{k}}\symup{\Sigma}_z S^s\right]\symbf{\Psi}_{\symbf{k}}
+    \end{equation}
+    的作用类似一个自旋扭矩算符。在 $s$ 方向极化的自旋电流 $\tilde{\symbf{j}}^s$ 只有在类自旋扭矩项 $\tilde{T}^s=0$ 时才能很好地定义，或者等效地说，此时应该满足 $[\symup{\Sigma}_z\symbf{S}^s, H]=0$。如前所述，这种守恒关系在一般的指向 $\hat{\symbf{z}}_i$ 下可能不成立，此时自旋电流的定义似乎存在问题。然而，线性响应理论的研究表明，在具备反演对称性的系统中，自旋流的热响应仍然可以定义，其中 $\tilde{\symbf{T}}$ 的贡献会因为对称性导致的相消而完全消失~\cite{li2020intrinsic}。对应的能斯特系数 $\nu^s_{\alpha\beta}$ 的表达式为：
+    \begin{align}
+        \nu^s_{\alpha\beta}=\frac{2k_B}{V}\sum_{n=1}^{2m}\sum_{{\symbf{k}}}\symup{\tilde{\Omega}}^s_{\alpha\beta,n{\symbf{k}}}c_1[g(E_{n{\symbf{k}}})],
+        \label{eq:nu}
+    \end{align}
+    其中 $V$ 是系统的体积，$c_1(x)=(1+x)\ln(1+x)-x\ln x$，$g(x)=(e^{x/k_B T}-1)^{-1}$ 是玻色-爱因斯坦分布，$\symup{\tilde{\Omega}}^s_{\alpha\beta,n{\symbf{k}}}$ 是广义自旋Berry曲率~\cite{li2020intrinsic,ma2021Intrinsic}，定义为：
+    \begin{equation}
+        \symup{\tilde{\Omega}}^s_{\alpha\beta,n{\symbf{k}}}=\sum_{n'\neq n}(\symup{\Sigma}_z)_{nn}\frac{2\text{Im}[(j^s_{\alpha{\symbf{k}}})_{nn'}(\symup{\Sigma}_z)_{n'n'}(v_{\beta{\symbf{k}}})_{n'n}]}{\left[(\symup{\Sigma}_z)_{nn}E_{n{\symbf{k}}}-(\symup{\Sigma}_z)_{n'n'}E_{n'{\symbf{k}}}\right]^2},
+        \label{GsBC}
+    \end{equation}
+    其中 $(\dots)_{nn'}$ 表示 $\langle\psi_{n{\symbf{k}}}|(\dots)|\psi_{n'{\symbf{k}}}\rangle$，$|\psi_{n{\symbf{k}}}\rangle$ 是第 $n$ 个能带的本征波函数，使得
+    \begin{equation}
+        H_{\symbf{k}} \ket{\psi_{n{\symbf{k}}}} = E_{n{\symbf{k}}} \ket{\psi_{n{\symbf{k}}}},
+    \end{equation}
+    且 Im[ ] 提取复数的虚部。
+    
+    在伊辛轴沿 $z$ 方向的共线情形下，即 $\hat{\symbf{z}}_i=\hat{\symbf{z}}$，自旋$z$分量守恒。如果不存在简并，则算符$S^z$和哈密顿量$H_{\bm{k}}$共享相同的本征态$\psi_{\bm{k}}$，满足$S^z |\psi_{n{\bm{k}}}\rangle=s_n^z|\psi_{n{\bm{k}}}\rangle$以及$H_{\bm{k}}|\psi_{n{\bm{k}}}\rangle=E_{n{\bm{k}}}|\psi_{n{\bm{k}}}\rangle$。注意到关系式$\sum_n|\psi_{n{\bm{k}}}\rangle\symup{\Sigma}_z\langle\psi_{n{\bm{k}}}|=\symup{\Sigma}_z$，我们得到
+    \begin{align}
+        S^z\symup{\Sigma}_z H_{\bm{k}}&=S^z\left(\sum_n|\psi_{n{\bm{k}}}\rangle\symup{\Sigma}_z\langle\psi_{n{\bm{k}}}|\right) H_{\bm{k}}\nonumber\\
+        &=\sum_n \left(s_n^z|\psi_{n{\bm{k}}}\rangle\symup{\Sigma}_z\langle\psi_{n{\bm{k}}}| E_{n{\bm{k}}}\right)\nonumber\\
+        &=\sum_n \left(E_{n{\bm{k}}}|\psi_{n{\bm{k}}}\rangle\symup{\Sigma}_z\langle\psi_{n{\bm{k}}}|s_n^z\right)\\
+        &=H_{\bm{k}}\symup{\Sigma}_z S^z,
+    \end{align}
+    因此，电流算符满足$j_{\alpha {\bm{k}}}^{z}=\frac{1}{2} S^{z} \symup{\Sigma}_z v_{\alpha {\bm{k}}}$，由此可得
+    \begin{align}
+        \tilde{\Omega}_{\alpha \beta ,n{\bm{k}}}^{z} &=\sum _{n'\neq n} (\Sigma _{z} )_{nn}\frac{2\text{Im} [(j_{\alpha {\bm{k}}}^{z} )_{nn'} (\Sigma _{z} )_{n'n'} (v_{\beta {\bm{k}}} )_{n'n} ]}{[ (\Sigma _{z} )_{nn} E_{n{\bm{k}}} -(\Sigma _{z} )_{n'n'} E_{n'{\bm{k}}}]^{2}}\nonumber\\
+         & =\sum _{n'\neq n} (\Sigma _{z} )_{nn}\frac{2\text{Im} [(\frac{1}{2} S^{z} \Sigma_z v_{\alpha {\bm{k}}} )_{nn'} (\Sigma _{z} )_{n'n'} (v_{\beta {\bm{k}}} )_{n'n} ]}{[ (\Sigma _{z} )_{nn} E_{n{\bm{k}}} -(\Sigma _{z} )_{n'n'} E_{n'{\bm{k}}}]^{2}}\nonumber\\
+         & =\frac{1}{2}\sum _{n'\neq n} (\Sigma _{z} )_{nn}\frac{2\text{Im} [(S^{z} \Sigma_z v_{\alpha {\bm{k}}} )_{nn'} (\Sigma _{z} )_{n'n'} (v_{\beta {\bm{k}}} )_{n'n} ]}{[ (\Sigma _{z} )_{nn} E_{n{\bm{k}}} -(\Sigma _{z} )_{n'n'} E_{n'{\bm{k}}}]^{2}}\nonumber\\
+         & =\frac{1}{2}\sum _{n'\neq n} (\Sigma _{z} )_{nn}\frac{2\text{Im} [(S^{z} \Sigma_z)_{nm}( v_{\alpha {\bm{k}}} )_{mn'} (\Sigma _{z} )_{n'n'} (v_{\beta {\bm{k}}} )_{n'n} ]}{[ (\Sigma _{z} )_{nn} E_{n{\bm{k}}} -(\Sigma _{z} )_{n'n'} E_{n'{\bm{k}}}]^{2}}\nonumber\\
+         & =\frac{1}{2} (S^{z} \Sigma_z)_{nn}\sum _{n'\neq n} (\Sigma _{z} )_{nn}\frac{2\text{Im} [( v_{\alpha {\bm{k}}} )_{nn'} (\Sigma _{z} )_{n'n'} (v_{\beta {\bm{k}}} )_{n'n} ]}{[ (\Sigma _{z} )_{nn} E_{n{\bm{k}}} -(\Sigma _{z} )_{n'n'} E_{n'{\bm{k}}}]^{2}}\nonumber\\
+         & =\frac{1}{2}s_n^{z} \Omega_{\alpha \beta ,n{\bm{k}}},
+    \end{align}
+    其中我们使用了$S^z\symup{\Sigma}_z$在本征基$|\psi_{n{\bm{k}}}\rangle$下为对角矩阵，且粒子能带的$(\symup{\Sigma}_z)_{nn}=+1$的条件，$\symup{\Omega}_{\alpha \beta ,n{\bm{k}}}$ 为常规的 Berry 曲率。由此，我们展示了自旋Berry曲率简化为常规的Berry曲率，并且式~\eqref{eq:nu} 将恢复为研究共线反铁磁体中的自旋能斯特效应的形式~\cite{cheng2016spin,zyuzin2016Magnon}。
+
+    \section{本章小结}
+    本章围绕量子顺磁体中的自旋能斯特效应，系统性地建立了其理论基础。首先，我们探讨了量子顺磁体的自旋模型。在具有自旋-轨道耦合的莫特绝缘体中，局域磁矩的状态可通过有效自旋 $S=1$ 表征。结合晶体场效应和自旋-轨道耦合，我们将单离子基态描述为单重态 $\ket{\hat{\bm{z}}_i \cdot \bm{S}_i = 0}$，而第一激发态为二重态 $\ket{\hat{\bm{z}}_i \cdot \bm{S}_i = \pm 1}$，其激发能量由各向异性项 $\eta$ 决定。在此基础上，相邻格点间的自旋交换耦合被纳入模型，包括海森堡交换 $J$ 和 DM 相互作用 $\bm{D}_{ij}$，从而构造了完整的有效哈密顿量。当各向异性 $\eta$ 较大时，系统基态表现为量子顺磁相，其激发态的色散受交换相互作用调制，为后续热输运研究奠定了基础。
+
+    接着，我们引入线性味波理论以分析量子顺磁体中的低能激发。由于基态无序，传统线性自旋波理论不适用，我们采用 SU(3) 表示下的线性味波方法，将自旋态分为三种“味”并通过玻色子算符重构自旋升降算符。在非共线伊辛轴的情况下，味波激发的能带色散通过 Bogoliubov-de Gennes 哈密顿量计算获得，揭示了激发的拓扑性质。这种方法不仅描述了激发态的动态行为，还为自旋能斯特效应的横向输运提供了微观机制。
+
+    最后，我们基于线性响应理论研究了自旋能斯特效应的产生机制。味波激发携带的非平凡拓扑特性通过自旋 Berry 曲率 $\tilde{\Omega}^s_{\alpha\beta,n\bm{k}}$ 体现，在温度梯度作用下诱发横向自旋电流，即味能斯特效应。通过推导能斯特系数 $\nu^s_{\alpha\beta}$ 的表达式，我们展示了其与自旋 Berry 曲率和玻色分布的关系。特别地，在伊辛轴共线的情形下，自旋 Berry 曲率简化为常规 Berry 曲率，与共线反铁磁体中的自旋能斯特效应形式一致，验证了理论框架的普适性。
+
+    综上所述，本章从自旋模型构建、味波激发分析到线性响应计算，系统性地阐述了量子顺磁体中自旋能斯特效应的理论框架，为后续理论推导和数值模拟提供了坚实的理论依据。

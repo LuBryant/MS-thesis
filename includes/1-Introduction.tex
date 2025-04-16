@@ -1,0 +1,87 @@
+\chapter{引言}
+\section{自旋能斯特效应}
+
+近年来，自旋卡洛里特效应（spin caloritronics）作为一门新兴交叉学科，将热流与自旋流的相互转换引入自旋电子学，引发了广泛关注~\cite{uchida2008Observation}。其中，自旋能斯特效应（Spin Nernst Effect, SNE）作为自旋霍尔效应的热力学对应，因其独特的物理机制而备受瞩目~\cite{cheng2016Spina, meyer2017Observationb}。SNE 描述了在具有强自旋-轨道耦合的非磁性材料中施加温度梯度时，可产生与热流方向垂直的纯自旋流。这一现象与自旋塞贝克效应（Spin Seebeck Effect, SSE）形成鲜明对比。SSE 最早于 2008 年在金属铁磁体中被实验观测到\cite{uchida2008Observationa}，其核心机制是通过热梯度驱动铁磁体内部的自旋流，并借助自旋霍尔效应检测出电压信号，从而实现热能到自旋电信号的转换。而 SNE 则无需磁性有序介质，仅在顺磁材料中即可通过热流直接诱导横向自旋流~\cite{meyer2017Observationb}。因此，相较于依赖磁矩的 SSE，SNE 提供了一种无需外加磁场、完全基于自旋-轨道相互作用的热-自旋转换新途径，显著拓展了自旋热效应的研究领域。
+
+自旋能斯特效应的理论与实验发展脉络清晰可循。早在 2008 年前后，理论研究者便预言在强自旋-轨道耦合体系中存在 SNE~\cite{sheng2017Spin}。此后数年，关于 SNE 的物理机制和潜在材料的理论研究持续深化，但实验验证长期未能突破。直到 2017 年，两个独立实验团队几乎同时报告了 SNE 的首次观测，标志着该领域的重要里程碑。一方面，Meyer 等人~\cite{meyer2017Observationb} 在 Pt/YIG 异质结构中通过精密的热电测量技术，成功分离出由 SNE 引起的自旋累积信号，证实了铂薄膜在温度梯度作用下可产生横向自旋流。另一方面，Sheng 等人~\cite{sheng2017Spin} 在钨/CoFeB 金属双层结构中直接探测到热流激发的自旋流，并提出了“自旋能斯特角”这一参数来量化 SNE 的效率。这两项开创性实验均依托重元素顺磁金属（如 Pt、W）的强自旋霍尔效应背景，实验结果表明，自旋能斯特信号的强度与材料本征自旋霍尔导率的能量导数密切相关。具体而言，钨的自旋能斯特角约为其自旋霍尔角的 70\%，且符号相反。这些发现首次在纯顺磁体系中验证了热驱动自旋流的存在，为 SNE 的实验研究奠定了坚实基础。
+
+SNE 在顺磁体系中的研究具有重要的科学意义与应用前景。一方面，相较于传统依赖磁性材料的自旋热效应，SNE 利用无磁有序材料即可生成并输运自旋角动量，为自旋电子学器件的设计提供了新的自由度。例如，在无需外加磁场的条件下，仅通过温度调控即可在重金属薄膜中产生可控的纯自旋流信号，这在自旋电流的能量收集与操控领域具有潜在价值。另一方面，顺磁体系因缺乏长程磁有序，能够避免磁畴噪声和磁阻饱和等干扰因素，从而为研究自旋-轨道耦合的本征性质对热-自旋转换的影响提供了理想平台。然而，SNE 的实验观测面临诸多挑战。首先，热诱导的自旋累积信号通常极其微弱，易被传统塞贝克效应或努斯特效应产生的电信号所掩盖。为此，实验上需设计巧妙的测量方案以分离 SNE 贡献，例如利用磁性绝缘体（如 YIG）的磁化方向依赖性调制自旋流跨界面传输，提取纯净的 SNE 信号。其次，SNE 效应的量化表征（如自旋能斯特电导和自旋能斯特角）需结合自旋霍尔磁阻和逆自旋霍尔效应等多种技术综合分析。这些挑战凸显了顺磁体系中 SNE 研究的复杂性，同时也推动了新型测量方法的发展，例如“自旋能斯特磁阻”技术的提出，为探测反铁磁材料磁化动力学开辟了新路径。
+
+\section{量子磁性概述}\label{sec:quantum_magnetism}
+
+\subsection{磁有序态与顺磁态的比较}
+
+磁性材料的宏观行为通常可分为两大类：具有\emph{磁有序}（magnetically ordered）基态的系统和\emph{顺磁}（paramagnetic）基态的系统。
+
+在磁有序态中，体系在零温下呈现非零的局域磁矩排列，自旋对称性自发破缺。其典型类型包括：
+\begin{itemize}
+    \item \emph{铁磁（Ferromagnetic）}：自旋趋于平行排列，形成净磁化矢量 $\langle \mathbf{S}_i \rangle = \mathbf{M} \neq 0$。
+    \item \emph{反铁磁（Antiferromagnetic）}：相邻自旋反平行排列，局域磁矩非零但宏观磁化总和为零。
+    \item \emph{复杂磁结构}：如螺旋、自旋密度波或 120° 排列，多见于几何受挫体系。
+\end{itemize}
+这些有序态的共同特征是存在非零自旋序参量 $\langle \mathbf{S}_i \rangle \neq 0$，并在低温下通过自发对称性破缺形成，其激发通常为 Goldstone 模（如磁振子），可在输运过程中携带热流与自旋流。
+
+与之相对，\emph{顺磁态}不具备自发有序，自旋在统计平均下无固定取向，满足 $\langle \mathbf{S}_i \rangle = 0$。顺磁态可进一步分为：
+\begin{itemize}
+    \item \emph{经典顺磁态}：高温下热涨落主导，掩盖交换作用，磁矩彼此独立，符合 Curie 定律。
+    \item \emph{量子顺磁态}：低温下无有序，自旋因量子涨落或各向异性被“冻结”于无序基态，但仍存在局域激发。例如，在强单离子各向异性下，$S=1$ 体系可呈现 $\langle S^z_i \rangle = 0$ 的无序基态，而 $\pm 1$ 态作为激发形成色散。
+\end{itemize}
+磁有序态通常伴随相变温度（如 $T_C$ 或 $T_N$），其磁激发行为在相变点附近显著变化。而量子顺磁态在 $T=0$ 时可能存在激发能隙，其激发为玻色型准粒子（如 triplon 或 flavor-wave 模式），可在宽广温度范围内被激活，成为研究拓扑自旋输运的理想平台。本文聚焦于后者——\emph{无序但可激发的量子顺磁态}，其磁激发在温度梯度下可诱导横向自旋流，进而产生自旋能斯特效应。这一机制与传统磁振子驱动的 SNE 存在本质差异，值得深入探讨。
+
+\subsection{经典磁性与量子磁性的区别}
+
+磁性源于电子自旋与轨道运动的相互作用。在经典磁性中，如铁磁体和反铁磁体，自旋被视为宏观矢量，在低于居里温度（$T_C$）或奈尔温度（$T_N$）时自发排列形成磁有序相，可通过平均场近似或 Landau 理论等经典框架描述，其特征为存在非零序参量 $\langle \mathbf{S} \rangle \neq 0$。
+
+然而，在低维、低自旋、强量子涨落或受挫晶格结构下，自旋间的相互作用难以维持经典有序相。此类体系基态无自发对称性破缺（即 $\langle \mathbf{S} \rangle = 0$），却蕴含丰富的短程关联和非平庸激发行为，这种现象被统称为\emph{量子磁性}（quantum magnetism）\cite{knolle2019Field,rau2016SpinOrbit}。量子磁性中，经典自旋矢量模型不再适用，需借助量子力学中的自旋算符和希尔伯特空间方法分析。典型系统包括量子自旋液体、一维 Haldane 链及强关联 $J_{\rm eff}=1/2$ Mott 绝缘体等。
+
+\subsection{量子涨落与几何受挫}
+
+\emph{量子涨落}是量子磁性形成的关键机制。在低自旋体系（如 $S=1/2$）中，海森堡不确定性关系 $\Delta S_x \Delta S_y \geq \frac{1}{2} |\langle S_z \rangle|$ 确保即使在零温下自旋仍有本征涨落。此外，量子隧穿效应使自旋可在不同态间切换，削弱能量偏好的有序排列。
+
+\emph{几何受挫}（geometrical frustration）则源于晶格结构导致的自旋相互作用冲突。例如，在三角形或 Kagome 晶格中，相邻自旋若倾向反平行排列，则无法同时满足所有相互作用条件，形成“受挫”状态。这种受挫抑制常规有序相，放大量子涨落效应。二者协同作用，可稳定无序但高度纠缠的量子磁态，如量子自旋液体和量子顺磁体。
+
+\subsection{典型量子磁性模型}
+
+为阐明量子磁性物理，研究者提出了多种理论模型：
+\begin{itemize}
+    \item \emph{Heisenberg 模型}：
+    \[
+    H = J \sum_{\langle i,j \rangle} \mathbf{S}_i \cdot \mathbf{S}_j,
+    \]
+    其中 $J>0$ 表示反铁磁耦合。该模型在一维 $S=1/2$ 情形下具有精确解（Bethe Ansatz），呈现量子临界行为。
+    \item \emph{Haldane 链模型}：针对一维整数自旋反铁磁链，Haldane 猜想指出 $S=1$ 链具激发能隙，而 $S=1/2$ 链为无隙态 \cite{haldane1983Continuum}。
+    \item \emph{Kitaev 模型}：定义于蜂窝晶格的各向异性交换模型，其激发具拓扑性质，是研究自旋液体相的理想模型 \cite{kitaev2006Anyons}。
+    \item \emph{单离子各向异性模型}：
+    \[
+    H_D = D \sum_i (S^z_i)^2,
+    \]
+    当 $D>0$ 时，基态为 $S^z=0$，形成有能隙的量子顺磁体，是本文分析的基础。
+    \item \emph{Dzyaloshinskii-Moriya（DM）相互作用}：
+    \[
+    H_{DM} = \sum_{\langle i,j \rangle} \mathbf{D}_{ij} \cdot (\mathbf{S}_i \times \mathbf{S}_j),
+    \]
+    该项源于自旋-轨道耦合，打破空间反演对称，引入手征性和 Berry 曲率，是拓扑磁激发输运的关键 \cite{dzyaloshinsky1958thermodynamic}。
+\end{itemize}
+
+\subsection{量子磁性与拓扑输运}
+
+近年研究表明，量子磁性体系中的自旋激发（如磁振子、triplon 等）在非平庸拓扑能带下，可展现类似电子的拓扑输运现象。例如：
+\begin{itemize}
+    \item \emph{磁振子霍尔效应}：已在磁有序体中观测到，激发因 Berry 曲率发生横向偏转，产生热霍尔信号。
+    \item \emph{自旋能斯特效应}：在无磁有序的顺磁基态中，拓扑自旋流可由具 Berry 曲率的激发驱动，如本文研究的情形。
+    \item \emph{量子化热霍尔效应}：在分数量子自旋液体中，拓扑自旋激发可导致热霍尔导数呈现量子化特征 \cite{kasahara2018Majorana}。
+\end{itemize}
+
+量子磁性不仅是基础物理的前沿课题，亦成为拓扑物态与自旋电子学的交汇点，其与拓扑输运的关联研究正成为凝聚态物理的重要方向。
+    
+    \section{量子顺磁体}
+    量子顺磁体的特征是在零温度下缺乏长程磁有序，通常出现在强量子波动抑制了传统磁性有序的材料中~\cite{knolle2019Field}。在许多此类系统中，自旋-轨道耦合（SOC）与晶体电场（CEF）效应之间的相互作用导致了一个具有多个能级的复杂局部希尔伯特空间~\cite{rau2016SpinOrbit}。这些CEF激发可以看作是广义的三重态，类似于二聚化磁体中的三重子激发~\cite{akbari2023Topological, mcclarty2017Topological, romhanyi2015Hall}。
+
+    由于这些在量子顺磁体中的相关激发是电荷中性的，传统的电学方法通常在此类情况下失效。相反，热驱动输运已成为研究关联量子材料中基本激发性质的有力探针~\cite{zhang2024Thermal, onose2010Observation, katsura2010theory}。例如，超低温下的纵向热导率的线性残余项归因于可移动的费米激发，已被认为是无间隙量子自旋液体的证据~\cite{ni2019Absence, bourgeois-hope2019Thermal, zhu2023Fluctuating}。另一方面，横向热霍尔效应提供了关于激发贝里曲率的有价值信息~\cite{zhang2024Thermal, ma2024upper, boulanger2020Thermal}。最近的实验揭示了在多种量子磁体中显著的热霍尔信号，包括\ce{Tb2Ti2O7}~\cite{li2013Phononglasslike}、\ce{Yb2Ti2O7}~\cite{tokiwa2016Possible}和Cd-卡佩石\ce{CdCu3(OH)6(NO3)2 * H2O}~\cite{akazawa2020Thermal}，其中CEF激发发挥了重要作用。除了携带能量外，这些激发还可以通过热驱动力传输自旋信息。最近，自旋输运与热流之间的相互作用引起了凝聚态物理学领域的广泛关注，并在自旋电子学的发展中发挥着至关重要的作用~\cite{zutic2004Spintronics, hoffmann2015Opportunities, barker2021Review, elahi2022Review, nakayama2021Aboveroomtemperature, back2019Special, uchida2021Spintronica}。许多热自旋电子现象，如自旋塞贝克效应和自旋依赖的佩尔帖效应，已被实验观察并在理论上得到了阐释~\cite{flipse2012Direct, bakker2010Interplay, maekawa2017spin, bhardwaj2018Spin, adachi2013Theory, uchida2016Thermoelectric, ma2020longitudinal}。在这些研究中，自旋的拓扑输运已成为一个特别引人注目的领域，为我们提供了对基本量子现象的洞察，并在下一代器件中具有潜在应用~\cite{armitage2018Weyl, tokura2019Magnetic}。
+
+    类似于热霍尔效应，当自旋激发获得非平凡的能带拓扑时，可以在纵向温度梯度和垂直磁场的作用下产生横向自旋电流。这就是所谓的自旋能斯特效应，已通过自旋-轨道耦合磁体中的拓扑磁声子得以实现~\cite{cheng2016spin, zyuzin2016Magnon, meyer2017Observationb, shiomi2017Experimental, sheng2017Spin, ma2021Intrinsic, zhang2022Perspective}。显然，这种磁声子自旋能斯特效应要求基态具有磁有序，因此系统温度受相变温度$T_c$的限制。然而，由于是热激发携带非零自旋，基态原则上不需要处于有序相。此外，在许多候选拓扑磁体中，$T_c$通常小于80 K（例如，已有实验的两个拓扑磁声子候选材料\ce{CrI3}和\ce{Lu2V2O7}分别具有$T_c\approx 45$ K和$70$ K~\cite{huang2017Layerdependent, onose2010Observation}），而量子顺磁体\ce{Tb2Ti2O7}中的热霍尔信号已经观察到高达142 K~\cite{hirschberger2015Thermal}。因此，我们有动机将自旋能斯特效应的概念扩展到这些量子顺磁体，其中CEF激发具有非零角动量~\cite{babkevich2015Neutrona, thalmeier2024Induced}。与磁性系统中的线性自旋波理论~\cite{kittel2018introduction}相比，我们应用线性味波理论~\cite{joshi1999elementary, li19984}来从顺磁基态获得CEF激发，因此我们将量子顺磁体中线性味波的自旋能斯特效应称为味能斯特效应。
+    
+    \section{本文内容与结构}
+    在本文中，我们将详细介绍量子顺磁体中的味能斯特效应。在第~\ref{chap:theory}章中，我们提出了一个有效的自旋-1哈密顿量来实现量子顺磁基态，并引入了用于CEF激发的线性味波表示，同时我们在线性响应理论框架下展示了味能斯特特效应的热响应系数可以通过广义自旋贝里曲率来表示，而这种曲率与CEF激发的能带拓扑结构紧密相关。在第~\ref{chap:pyrochlore_model}章中，我们以二维焦石薄膜为例，建立了相应的自旋模型。在第~\ref{chap:Spin_Nernst_Effect}章中，评估了味能斯特系数，并研究了系统温度、耦合强度和外部磁场对味能斯特自旋输运的影响。最后，在第~\ref{chap:summary}章中，我们对本文进行了总结并提出了未来研究的可能方向。
+
+
