@@ -13,21 +13,21 @@
         
         为了更详细地理解温度效应，我们在图~\ref{fig:colored dispersion and DOsB} 中通过
         \begin{equation}
-            L(\symup{\tilde{\Omega}}^s_{xy})=\text{sgn}(\symup{\tilde{\Omega}}^s_{xy})\ln(1+|\symup{\tilde{\Omega}}^s_{xy}|)
+            L(\symup{\tilde{\symbfup{\Omega}}}^s_{xy})=\text{sgn}(\symup{\tilde{\symbfup{\Omega}}}^s_{xy})\ln(1+|\symup{\tilde{\symbfup{\Omega}}}^s_{xy}|)
         \end{equation}
         对能带进行着色，其中 $L(x)=\text{sgn}(x)\ln{(1+|x|)}$ 为对数函数。结果显示，自旋Berry曲率的非零值主要集中在反交叉点处，并且两个能带的自旋Berry曲率符号相反。
 
         \begin{figure}[b]
             \centering
             \includegraphics[width=\textwidth]{Fig4-DOsB.pdf}
-            \caption{由对数化的自旋 Berry 曲率 $L(\tilde{\Omega}^s_n)$ 着色的色散关系，以及 DOS $\mathcal{D}(E)$ 和 DOsB $\mathcal{D}^s_{\alpha \beta}(E)$。(a) 为 $s=y$ 的情况，(b) 为 $s=z$ 的情况。图片来自\cite{lu2024Spin}。}
+            \caption{由对数化的自旋 Berry 曲率 $L(\tilde{\symbfup{\Omega}}^s_n)$ 着色的色散关系，以及 DOS $\mathcal{D}(E)$ 和 DOsB $\mathcal{D}^s_{\alpha \beta}(E)$。(a) 为 $s=y$ 的情况，(b) 为 $s=z$ 的情况。图片来自\cite{lu2024Spin}。}
             \label{fig:colored dispersion and DOsB}
         \end{figure}
         
         在图~\ref{fig:colored dispersion and DOsB} 中，我们还展示了\emph{态密度}（Density of states, DOS） $\mathcal{D}(E)$ 以及\emph{自旋Berry曲率密度}（Density of spin Berry curvature, DOsB） $\mathcal{D}^s_{\alpha\beta}(E)$，其定义如下：
         \begin{align}
             \mathcal{D}(E)&= \int_{BZ} \sum_n \frac{d{\bm{k}}}{(2\pi)^2} \delta(E - E_n({\bm{k}})),\\
-            \mathcal{D}^s_{\alpha\beta}(E)&= \int_{BZ} \sum_n \frac{d{\bm{k}}}{(2\pi)^2} \delta(E - E_n({\bm{k}})) \symup{\tilde{\Omega}}^s_{\alpha\beta,n{\bm{k}}}.
+            \mathcal{D}^s_{\alpha\beta}(E)&= \int_{BZ} \sum_n \frac{d{\bm{k}}}{(2\pi)^2} \delta(E - E_n({\bm{k}})) \symup{\tilde{\symbfup{\Omega}}}^s_{\alpha\beta,n{\bm{k}}}.
         \end{align}
         由于低能带在玻色子统计下对 味能斯特效应 贡献更为显著，并且最低的四条能带在能量上与更高能带分离，因此我们主要关注这四条能带。可以清晰地看到在4.8$J$以下DOsB呈现交替符号的显著变化，从而导致 $\nu^y_{xy}$ 的非单调行为。
         
@@ -52,7 +52,7 @@
         
         显然，除了能量尺度的影响之外，能带的自旋 Berry 曲率本身也会显著影响 味能斯特效应。如前所述，在共线情况下，自旋 Berry 曲率与 Berry 曲率直接相关，因此即使在更一般的非共线情况下，味能斯特效应 也应当反映能带的几何结构。例如，如果重现由动量分辨的自旋 $z$ 分量 $S^z_{n{\bm{k}}} \equiv \langle \psi_{n{\bm{k}}} | S^z | \psi_{n{\bm{k}}} \rangle$ 进行着色的能带色散（如图~\ref{fig:Sz-Dispersion} 所示），则可以观察到，较低的三个能带主要为自旋向上态。因此，自旋 Berry 曲率可近似由能带 Berry 曲率给出：
         \begin{equation}
-            \tilde{\Omega}^z_{xy,n{\bm{k}}} \sim \left( \frac{1}{V} \sum_{\bm{k}} S^z_{n{\bm{k}}} \right) \Omega_{xy,n{\bm{k}}},
+            \tilde{\symup{\Omega}}^z_{xy,n{\bm{k}}} \sim \left( \frac{1}{V} \sum_{\bm{k}} S^z_{n{\bm{k}}} \right) \symup{\Omega}_{xy,n{\bm{k}}},
         \end{equation}
         从而 味能斯特效应 间接地反映了能带的几何与拓扑特性。
 
@@ -104,4 +104,4 @@
 
     最后，我们分析了外磁场对味能斯特系数的影响。计算结果表明，$\nu^y_{xy}$ 和 $\nu^z_{xy}$ 是磁场 $B$ 的偶函数，且在 $B \to 0$ 时不一定趋于零。这一特性源于自旋 Berry 曲率在时间反演对称性下的不变性，区别于热霍尔效应的行为。
 
-    综上所述，本章通过数值计算和理论分析，揭示了二维 \textit{pyrochlore} 薄层中自旋能斯特效应的多场调控机制，阐明了温度、各项异性、DM 相互作用和外磁场对味能斯特系数的综合影响。研究成果不仅加深了我们对自旋能斯特效应物理本质的理解，还为通过外部参数调控热自旋电流提供了理论支持，具有潜在的压电自旋电子学应用价值。
+    综上所述，本章通过数值计算和理论分析，揭示了二维 pyrochlore 薄层中自旋能斯特效应的多场调控机制，阐明了温度、各项异性、DM 相互作用和外磁场对味能斯特系数的综合影响。研究成果不仅加深了我们对自旋能斯特效应物理本质的理解，还为通过外部参数调控热自旋电流提供了理论支持，具有潜在的压电自旋电子学应用价值。

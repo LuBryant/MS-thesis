@@ -1,7 +1,13 @@
 \chapter{二维pyrochlore薄层上的模型建立与初步分析}
 \label{chap:pyrochlore_model}
     \section{Pyrochlore 的晶格结构}
-        几何阻挫的\emph{烧绿石型}（pyrochlore）反铁磁材料，如\ce{Gd2Pt2O7}~\cite{welch2022MagneticStructure}、\ce{NaCdCo2F7}~\cite{kancko2023StructuralSpinglass} 和 \ce{LiGaCr4O8}~\cite{he2021NeutronScattering} 等，是实现量子顺磁相的可能平台之一。为简化起见，我们考虑沿 [111] 方向生长的二维烧绿石薄膜体系（如图~\ref{fig:pyrochlore_lattice} 所示），而非三维体材料。这种准二维烧绿石结构在实际材料中可能实现~\cite{liu2024chiralspinliquidlikestatepyrochlore}。一种较为可行的方法是制备三明治型异质结构，即在绝缘衬底间生长超薄烧绿石层。近年来，分子束外延和脉冲激光沉积技术的进步使得高质量烧绿石薄膜的厚度可达几个晶胞~\cite{fujita2016AllinalloutMagnetic}。研究者还开发了一种新的薄膜原位生长方法，即\emph{重复快速高温合成外延法}（repeated rapid high-temperature synthesis epitaxy, RRHSE）~\cite{kim2019InoperandoSpectroscopic,kim2020StrainEngineeringMagnetic}，以改善薄膜应力松弛问题。
+        几何阻挫的\emph{烧绿石型}（pyrochlore）反铁磁材料，如\ce{Gd2Pt2O7}~\cite{welch2022MagneticStructure}、\ce{NaCdCo2F7}~\cite{kancko2023StructuralSpinglass} 和 \ce{LiGaCr4O8}~\cite{he2021NeutronScattering} 等，是实现量子顺磁相的可能平台之一，图~\ref{fig:NaCdCo2F7}展示了\ce{NaCdCo2F7}的晶体结构。为简化起见，我们考虑沿 [111] 方向生长的二维烧绿石薄膜体系（如图~\ref{fig:pyrochlore_lattice} 所示），而非三维体材料。这种准二维烧绿石结构在实际材料中可能实现~\cite{liu2024chiralspinliquidlikestatepyrochlore}。一种较为可行的方法是制备三明治型异质结构，即在绝缘衬底间生长超薄烧绿石层。近年来，分子束外延和脉冲激光沉积技术的进步使得高质量烧绿石薄膜的厚度可达几个晶胞~\cite{fujita2016AllinalloutMagnetic}。研究者还开发了一种新的薄膜原位生长方法，即\emph{重复快速高温合成外延法}（repeated rapid high-temperature synthesis epitaxy, RRHSE）~\cite{kim2019InoperandoSpectroscopic,kim2020StrainEngineeringMagnetic}，以改善薄膜应力松弛问题。
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.6\textwidth]{NaCdCo2F7.jpg}
+            \caption{\ce{NaCdCo2F7}的晶格结构，图片来源~\cite{kancko2023StructuralSpinglass}}
+            \label{fig:NaCdCo2F7}
+        \end{figure}
 
         \begin{figure}
             \centering
@@ -162,7 +168,7 @@
     \section{对称性分析}
         在计算能斯特系数之前，我们注意到味能斯特系数张量 $\nu^s_{\alpha\beta}$ 在对称性操作 $\mathcal{R}$ 对应的矩阵表示 $R$ 作用下变换为~\cite{suzuki2017cluster,mook2019thermal,li2020intrinsic}
         \begin{align}
-        \nu^s_{\alpha\beta} = \det(R) R_{s s'}R_{\alpha\alpha'}R_{\beta\beta'} \nu^{s'}_{\alpha'\beta'}。
+            \nu^s_{\alpha\beta} = \det(R) R_{s s'}R_{\alpha\alpha'}R_{\beta\beta'} \nu^{s'}_{\alpha'\beta'}
         \end{align}
         因此，能斯特系数张量受晶格对称性的严格约束。
         
@@ -170,16 +176,16 @@
         \begin{align}
         [\nu^x\!,\nu^y\!,\nu^z]=\begin{bmatrix}
             \begin{pmatrix}
-            -\nu^y_{xy}     & 0\\
-            0                  & \nu^y_{xy}\\
-        \end{pmatrix}\!,\begin{pmatrix}
-            0                  & \nu^y_{xy}\\
-            \nu^{y}_{xy}    & 0
-        \end{pmatrix}\!\begin{pmatrix}
-            0                  & \nu^z_{xy}\\
-            -\nu^z_{xy}     & 0
-        \end{pmatrix}
-        \end{bmatrix}。
+                -\nu^y_{xy}     & 0\\
+                0                  & \nu^y_{xy}\\
+            \end{pmatrix}\!,\begin{pmatrix}
+                0                  & \nu^y_{xy}\\
+                \nu^{y}_{xy}    & 0
+            \end{pmatrix}\!\begin{pmatrix}
+                0                  & \nu^z_{xy}\\
+                -\nu^z_{xy}     & 0
+            \end{pmatrix}
+        \end{bmatrix}
         \end{align}
         因此，在此二维薄膜烧绿石体系中，仅存在两个独立的能斯特系数$\nu^y_{xy}$和$\nu^z_{xy}$。值得注意的是，尽管经典情况下全进全出伊辛轴构型使得$\sum_i\langle S_i^y \rangle=0$，但自旋-$y$方向的横向输运在对称性上仍然是允许的。
         
